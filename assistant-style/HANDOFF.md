@@ -73,9 +73,9 @@ November 23:
 - Charts: "Make sure we don't just use progress bars when they're not useful, and charts are functional and responsive." See `CHARTS.md`.
 - "Sometimes there's dead space when I scroll in agent assist mode": blocks waiting to appear take no space; bottom room = bar height + 32.
 - Chip rows: "say 'recommended' or 'suggested' when there isn't another prompt like 'before you decide'."
-- "I want everything in Github": both Brightline prototypes and this folder went to a new public repo with Pages; font files left out.
 - "Suggested actions for agent assist shouldn't persist in the feed once an action has been taken." Used suggestion rows are hidden (`.recs.done`, not forks) in all three; new ones appear at the end of the latest turn.
 - The shared style guide, chart rules, this handoff and the check tools moved to `~/Desktop/Claude/assistant-style/`. The Figma instructions became version 3: one current spec with a change log.
+- "I want everything in Github": both Brightline prototypes and this folder went to a new public repo with Pages; font files left out.
 
 Earlier standing rules still in force:
 - Brightline Assist's portal chrome keeps its layout and sizes; only colour, font and the edge changed. The exit is the close button beside the bar plus Escape.
