@@ -1,0 +1,12 @@
+# licensed typeface: never commit
+fonts/
+*.otf
+*.ttf
+*.woff
+*.woff2
+# check-tool output
+assistant-style/tools/shots/
+assistant-style/tools/*-results.json
+assistant-style/tools/*.log
+cdp-profile-*
+.DS_Store

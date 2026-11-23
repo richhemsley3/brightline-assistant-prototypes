@@ -1,0 +1,494 @@
+@import url("tokens/colors.css");
+/* Brightline Assist · the Brightline Onboarding v5 language, loaded after assist.css and restyling its own classes.
+   Colour: Design System Labs by its semantic tokens. The one exception is the AI flourish: the multicolour flow on the
+   Ring, the mark and the spinner, only on what the assistant owns.
+   Type: Proxima Nova. 28 title · 17 lead in the voice colour · 48 light figure · 17 section heads · 14 for the rest.
+   Surfaces only for what waits on the person or floats: the prepared action (with the Ring), the ask field and the bar,
+   the sheet, menus. The home's three insights stay a quiet toned group. Turn content sits on the page; turns divided by one rule.
+   The portal chrome (header, sidebar) keeps its layout and sizes; only the family and the token colours change there. */
+@font-face{font-family:"Proxima Nova";src:local("Proxima Nova Light"),local("ProximaNova-Light"),url("fonts/ProximaNova-Light.otf") format("opentype");font-weight:300;font-display:swap}
+@font-face{font-family:"Proxima Nova";src:local("Proxima Nova"),local("ProximaNova-Regular"),url("fonts/ProximaNova-Reg.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Proxima Nova";src:local("Proxima Nova Semibold"),local("ProximaNova-Semibold"),url("fonts/ProximaNova-Sbold.otf") format("opentype");font-weight:600;font-display:swap}
+:root{
+  --ground:var(--sds-bg-page); --card:var(--sds-bg-card); --well:var(--sds-bg-subtle); --rule:var(--sds-border-subtle); --edge:var(--sds-border-default);
+  --ink:var(--sds-text-primary); --ink-2:var(--sds-text-secondary); --ink-3:var(--sds-text-tertiary);
+  --navy:var(--sds-interactive-primary); --voice:var(--sds-status-info-text);
+  --shadow:0 0 0 1px var(--sds-border-default),0 1px 2px rgba(28,26,23,.04);
+  --float:0 0 0 1px var(--sds-border-default),0 16px 40px -16px rgba(28,26,23,.28);
+  --font:"Proxima Nova",-apple-system,"Segoe UI",Roboto,sans-serif; --mono:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  /* the engine's own names, pointed at the system */
+  --c-bg:var(--card); --c-ink:var(--ink); --c-2:var(--ink-2); --c-3:var(--ink-3); --c-q:var(--ink-3); --c-4:var(--sds-border-strong); --c-rule:var(--rule); --c-fill:var(--well);
+  --c-green:var(--sds-status-success-text); --c-link:var(--sds-text-link); --c-signal:var(--navy); --c-signal-d:var(--sds-interactive-primary-hover);
+  --c-violet:var(--voice); --c-watch:var(--sds-status-warning-text); --c-bad:var(--sds-status-error-text);
+  --mat:var(--shadow); --lift:var(--shadow);
+  /* the AI flourish keeps its own colours */
+  --flow:linear-gradient(90deg,#3144B7,#9EAAFC 18%,#FE6200 34%,#9EAAFC 50%,#3144B7 66%,#9EAAFC 82%,#FE6200);
+}
+body{background:var(--ground);color:var(--ink);font-family:var(--font);font-size:14px;line-height:24px}
+code,.mono{font-family:var(--mono);font-size:14px}
+
+/* ── the AI flourish ── */
+.ring::after{border-width:1.5px}
+.ring::before{opacity:.32}
+.prepared.ring::before{opacity:.24;inset:6px 12px;filter:blur(16px)}
+.tick path{stroke:var(--sds-status-success-strong)}
+.caret{background:var(--navy)}
+.term{background-image:linear-gradient(var(--navy),var(--navy))}
+
+/* ── sign in ── */
+.signin .mark{font-size:14px}
+.signin .mark i{background:var(--navy);box-shadow:none;border-radius:6px}
+.signin h1{font-size:40px;line-height:48px}
+.signin p{color:var(--ink-2);line-height:24px}
+.accounts{border-radius:12px;box-shadow:var(--shadow)}
+.account{padding:16px 24px}
+.account .t span,.account .p,.signin .fine{font-size:14px;color:var(--ink-3)}
+.account:hover{background:var(--sds-color-warm-gray-050)}
+
+/* ── the portal chrome: layout and sizes as before; family and colours from the system ── */
+.appbar{background:var(--card);border-bottom-color:var(--edge)}
+.appbar .mark i{background:var(--navy)}
+.appbar .org{border-left-color:var(--edge)}
+.appbar .org .st{color:var(--sds-status-success-text)}
+.appbar .q input{background:var(--well);color:var(--ink)}
+.appbar .q input::placeholder{color:var(--ink-3)}
+.appbar .q input:focus{background:var(--card);border-color:var(--navy);box-shadow:0 0 0 3px var(--sds-color-blue-100)}
+.appbar .q kbd{border-color:var(--edge);color:var(--ink-3)}
+.appbar .a{color:var(--ink-2)} .appbar .a:hover,.appbar .u:hover{background:var(--sds-color-warm-gray-050);color:var(--ink)}
+.appbar .a.needs .n{color:var(--sds-status-error-text)}
+.sb{background:var(--sds-nav-sidebar-bg)}
+.sb .g{color:var(--sds-nav-section-header)}
+.sb a{color:var(--sds-nav-item-text)}
+.sb a:hover{background:var(--sds-color-warm-gray-050)}
+.sb a.on{background:var(--sds-nav-item-active-bg);color:var(--sds-nav-item-active-text)}
+.sb a.on .n{color:var(--sds-nav-item-active-text)}
+.sb a .n.needs{color:var(--sds-status-error-text)}
+.menu{border-color:var(--edge);box-shadow:var(--float)}
+.menu .h{font-size:14px;color:var(--ink-3)} .menu button:hover{background:var(--sds-color-warm-gray-050)} .menu hr{border-top-color:var(--rule)}
+
+/* ── the home: the briefing ── */
+.s-home{padding:32px 0 48px}
+.home{width:min(1000px,100%);padding:0 32px;gap:24px}
+.byline{font-size:14px;line-height:24px;color:var(--ink-2);gap:12px}
+.bh{font-size:32px;line-height:40px;letter-spacing:-.02em;color:var(--ink);margin:-8px 0 0}
+.bh b{font-weight:600}
+/* the day's figure: on the page, between two rules */
+.hero{background:none;border-radius:0;box-shadow:none;overflow:visible;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.hero .hl{padding:24px 32px 8px 0;gap:4px}
+.hero .k{font-size:14px;line-height:24px;color:var(--ink-2)}
+.hero .hv{font-size:48px;font-weight:300;line-height:48px;letter-spacing:-.03em;margin:4px 0}
+.hero .hd{font-size:14px;line-height:24px;color:var(--ink-2)}
+.hero .hspark{height:128px;margin:16px 0 8px}
+.hspark text{font-family:var(--font)}
+.hspark .hg{stroke:var(--sds-chart-grid);stroke-dasharray:none}
+.hspark .ht{font-size:14px;fill:var(--sds-chart-axis-label)}
+.hspark .hlast{font-size:14px;fill:var(--ink)}
+.hspark .hb{fill:var(--sds-chart-3)} .hspark .hb.now{fill:var(--sds-chart-1)}
+.hspark .hb.hov{fill:var(--sds-chart-2)} .hspark .hb.now.hov{fill:var(--sds-interactive-primary-hover)}
+.stip{background:var(--sds-chart-tooltip-bg);font-size:14px;line-height:20px;padding:8px 12px}
+.stip b{font-size:14px} .stip span{color:var(--sds-color-warm-gray-300)}
+.hero .hr{border-left:1px solid var(--rule)}
+.hero .hr > div{padding:16px 0 16px 32px;gap:4px;border-top:1px solid var(--rule)}
+.hero .vv{font-size:22px;font-weight:600;line-height:32px;letter-spacing:-.015em}
+.hero .n{font-size:14px;line-height:24px;color:var(--ink-3)}
+/* the ask field */
+.asksec{gap:12px;padding-bottom:24px}
+.reply{min-height:56px;border-radius:12px;padding:8px 8px 8px 20px;gap:16px;font-size:14px;color:var(--ink-3);box-shadow:none}
+.app.typing .reply{color:var(--ink)}
+.rparse{font-size:14px;line-height:24px;color:var(--ink-3)} .rparse b{color:var(--ink)}
+.sugg{gap:12px}
+.send{width:40px;height:40px;border-radius:10px;background:var(--sds-border-strong);box-shadow:none}
+.send.ready,.send.await,.working .send{background:var(--navy)!important}
+.send.await:hover{background:var(--sds-interactive-primary-hover)!important}
+.send svg{width:16px;height:16px}
+/* the insights: a quiet toned group, no borders */
+.insg{gap:16px}
+.card{gap:4px;padding:24px;border-radius:12px;background:var(--well);box-shadow:none}
+.card.lead{padding:24px}
+.card.lead:hover{translate:0 -2px;box-shadow:none;background:var(--sds-color-warm-gray-100)}
+.card .lab{font-size:14px;line-height:24px;color:var(--ink-2)}
+.card .num{font-size:32px;font-weight:300;line-height:40px;letter-spacing:-.025em;margin-top:4px}
+.card.lead .num{font-size:48px;line-height:48px;letter-spacing:-.03em}
+.card .say{font-size:14px;line-height:24px;color:var(--voice);max-width:46ch}
+.card.lead .say{font-size:17px;line-height:28px}
+.card .say b{font-weight:600;color:var(--ink)}
+.card:not(.lead) .num{padding-top:16px}
+.card .rows{margin:16px 0;border-top:1px solid var(--edge)}
+.card .rows div{padding:12px 0;border-bottom:1px solid var(--edge);font-size:14px;line-height:24px}
+.card .rows div span:last-child{color:var(--ink-2)}
+
+/* ── asks and acts: chips ask the assistant, buttons act on the platform ── */
+.chip{height:40px;padding:0 16px;border-radius:10px;font-size:14px;font-weight:600;background:var(--card);color:var(--navy);box-shadow:inset 0 0 0 1px var(--sds-color-blue-200)}
+.chip:hover{background:var(--sds-color-warm-gray-050)}
+.chip .aimark{display:none}
+.chip.ask .aimark,#resume .aimark{display:inline-block}
+.done .chip,.chip.done{background:var(--card);color:var(--ink-3);box-shadow:inset 0 0 0 1px var(--rule)}
+.done .chip.picked{color:var(--ink);box-shadow:inset 0 0 0 1px var(--edge)}
+.btn{height:48px;padding:0 24px;border-radius:10px;font-size:15px;font-weight:600;background:var(--navy);color:var(--sds-text-on-primary);box-shadow:none}
+.btn:hover{background:var(--sds-interactive-primary-hover)}
+.btn:disabled{background:var(--sds-border-strong)}
+.tonal{height:40px;padding:0 16px;border-radius:10px;font-size:14px;font-weight:600;background:var(--sds-interactive-secondary);color:var(--ink);box-shadow:inset 0 0 0 1px var(--sds-interactive-secondary-border)}
+.tonal:hover{background:var(--sds-color-warm-gray-050)}
+.tonal:disabled{color:var(--ink-3);background:var(--well);box-shadow:none}
+
+/* ── the answer: one column; the head, then the action and the asks, then the evidence ── */
+.s-answer{padding:32px 0 48px}
+.col{width:min(912px,100%);padding:0 32px 176px;grid-template-columns:minmax(0,1fr);gap:32px}
+.col > *,.turn > *{grid-column:auto;min-width:0}
+.turn > .figure,.turn > .figure + .chartsec{grid-column:auto}
+.turn{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+.turn.later{margin-top:16px;padding-top:48px;border-top:1px solid var(--rule)}
+.turn.later > .qtitle{margin-top:0;padding-top:0;border-top:0}
+.qtitle,.qtitle.small{font-size:28px;font-weight:600;line-height:32px;letter-spacing:-.02em}
+.trace{font-size:14px;line-height:24px;color:var(--ink-2)}
+.trace-wrap{margin:-8px 0}
+.step{grid-template-columns:16px minmax(0,1fr) auto;gap:12px;padding:4px 0}
+.step .r{color:var(--ink);font-weight:600}
+.step.done .t{color:var(--ink-3)}
+.summary{font-size:14px;line-height:24px;color:var(--ink-3);gap:8px 12px;margin-top:-8px}
+.summary > span:not(.steps){flex:1;min-width:0}
+.steps,span.steps,span.steps:hover{height:auto;padding:0;border-radius:0;background:none;font-size:14px;font-weight:400;color:var(--ink-2);border-bottom:1px dotted var(--ink-3);white-space:nowrap}
+.steps:hover{background:none;color:var(--ink)}
+.steps .pm{width:8px;height:8px;margin-left:4px}
+.qcode{font-family:var(--mono);font-size:14px;line-height:24px;background:var(--sds-chart-tooltip-bg);color:var(--sds-color-warm-gray-050);border-radius:8px;padding:16px;box-shadow:none;white-space:pre;overflow-x:auto}
+.lead-p{font-size:17px;line-height:28px;max-width:62ch;color:var(--voice)}
+.lead-p b{font-weight:600;color:var(--ink)}
+/* the figure: on the page; one large light number, the split, the causes */
+.figure{gap:8px;padding:0;background:none;border-radius:0;box-shadow:none}
+.figure .k{font-size:14px;line-height:24px;color:var(--ink-2)}
+.figure .big{font-size:48px;font-weight:300;line-height:56px;letter-spacing:-.03em}
+.figure .d{font-size:14px;line-height:24px;color:var(--ink-2)}
+.split .track{gap:4px;height:12px;margin-top:16px}
+.split .track i{border-radius:4px}
+.s1{background:var(--sds-chart-1)} .s2{background:var(--sds-chart-2)} .s3{background:var(--sds-chart-3)}
+.causes{margin-top:8px}
+.cause{grid-template-columns:12px minmax(0,1fr) auto;gap:16px;padding:12px 0;border-top:1px solid var(--rule)}
+.cause i{width:12px;height:12px;border-radius:3px}
+.cause .t{font-size:14px;line-height:24px}
+.cause .t em{font-size:14px;color:var(--ink-3)}
+.cause .v{font-size:14px}
+/* charts: on the page, a 17 head, the system's series */
+.chartsec{gap:16px;padding:0;background:none;border-radius:0;box-shadow:none}
+.chartsec h4{font-size:17px;line-height:24px;gap:0}
+.chartsec h4 span{font-size:14px;line-height:24px;color:var(--ink-3)}
+.chart text{font-family:var(--font);font-size:14px;fill:var(--sds-chart-axis-label)}
+.chart .grid{stroke:var(--sds-chart-grid);stroke-dasharray:none}
+.chart .bar{fill:var(--sds-chart-1)} .chart .bar.dim{fill:var(--sds-chart-3)} .chart .bar.lt{fill:var(--sds-chart-3)} .chart .bar.cbad{fill:var(--sds-status-error-strong)}
+.chart .bl{fill:var(--ink)}
+.chart .lbl{fill:var(--ink);font-size:14px}
+.chart .cap{fill:var(--ink-3)}
+.chart .on{font-size:14px}
+.chart .lbl.good,.chart text.cgood{fill:var(--sds-status-success-text)} .chart text.cbad,.chart text.bad{fill:var(--sds-status-error-text)} .chart .violet{fill:var(--voice)}
+.chart .trk{fill:var(--sds-chart-grid)} .chart .trk.faint{fill:var(--well)}
+.chart .fill{fill:var(--sds-chart-1)} .chart .fill.lt,.chart .fill.ok{fill:var(--sds-chart-3)} .chart .fill.pl{fill:var(--sds-chart-grid)}
+.chart .mark{stroke:var(--sds-chart-2)}
+.chart .win{stroke:var(--sds-chart-2)}
+.chart .base{stroke:var(--sds-chart-grid)}
+.chart .band{fill:var(--sds-status-error-bg)}
+.chart circle.cbad{fill:var(--sds-status-error-strong)} .chart circle.cgood{fill:var(--sds-status-success-strong)}
+.chart .ghost{stroke:var(--sds-chart-2);stroke-width:1.5}
+.chart .orow.pickable:hover .obg,.chart .orow.pickable:focus-visible .obg{fill:var(--sds-color-warm-gray-050)}
+.chart .ol{fill:var(--ink);font-size:15px}
+.chart .ov{fill:var(--ink-2);font-size:14px}
+.chart .orow.hot .ov{fill:var(--ink)}
+.chart .orow .fill{fill:var(--sds-chart-3)} .chart .orow.hot .fill{fill:var(--sds-chart-1)}
+/* tables */
+.paycard{gap:16px;padding:0;background:none;border-radius:0;box-shadow:none;overflow-x:auto;grid-template-columns:minmax(0,1fr)}
+.pays{font-size:14px}
+.pays th{font-size:14px;line-height:24px;color:var(--ink-3);padding:0 16px 8px 0;border-bottom-color:var(--rule)}
+.pays td{height:48px;padding:12px 16px 12px 0;line-height:24px;border-bottom-color:var(--rule)}
+.pays td.c2{color:var(--ink-2)}
+.pays tr.hot td:first-child{box-shadow:none;padding-left:0}
+.pays tr.hot td{color:var(--ink)} .pays tr.hot td:nth-child(2){font-weight:600}
+.pays.tog tr.row:hover td{background:var(--sds-color-warm-gray-050)}
+.cb{width:18px;height:18px;border-radius:4px;box-shadow:inset 0 0 0 1.5px var(--sds-border-strong)}
+tr.sel .cb{background:var(--navy)}
+.tfoot{flex-wrap:wrap;gap:4px 16px;font-size:14px;line-height:24px;color:var(--ink-3);padding-top:16px;border-top:1px solid var(--rule)}
+.tfoot b{color:var(--ink)}
+.draft{gap:8px;padding:24px;border-radius:12px;background:var(--well);box-shadow:none}
+.draft .h{flex-wrap:wrap;gap:4px 12px}
+.draft .h b{font-size:17px;line-height:24px} .draft .h span{font-size:14px;color:var(--ink-3)}
+.draft p{font-size:14px;line-height:24px;max-width:68ch}
+.code{gap:12px;padding:0;background:none;border-radius:0;box-shadow:none}
+.code .h{font-size:17px;line-height:24px}
+.code pre{font-family:var(--mono);font-size:14px;line-height:24px;background:var(--sds-chart-tooltip-bg);color:var(--sds-color-warm-gray-050);border-radius:8px;padding:16px;white-space:pre;overflow-x:auto}
+.cal > div{border-radius:8px;padding:12px 16px;background:var(--well)}
+.cal > div.cur{background:var(--sds-nav-item-active-bg)}
+.cal .d,.cal .c,.cal .i,.cal .f{font-size:14px;line-height:24px}
+.cal .c{color:var(--ink-3)} .cal .f{color:var(--sds-status-success-text)}
+/* asks: a label and chips on one line */
+.recs{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:0}
+.recs .row{display:contents}
+.recs .k,.recs.next .k{font-size:14px;line-height:24px;font-weight:400;color:var(--voice);gap:12px;margin-right:4px}
+.recs.next{padding:0}
+/* the prepared action: the one surface in the turn */
+.prepared{grid-template-columns:minmax(0,1fr) auto;gap:8px 32px;align-items:center;padding:24px;border-radius:12px;background:var(--card);box-shadow:none}
+.prepared .k{grid-column:1;font-size:14px;line-height:24px;color:var(--ink-3);gap:12px}
+.prepared .w{grid-column:1;font-size:22px;font-weight:600;line-height:32px;letter-spacing:-.015em}
+.prepared .row{display:contents}
+.prepared .m{grid-column:1;font-size:14px;line-height:24px;color:var(--ink-2)} .prepared .m b{color:var(--ink)}
+.prepared .btn{grid-column:2;grid-row:1/4}
+.prepared.sent{box-shadow:none;background:var(--well)}
+.prepared.sent .k{color:var(--sds-status-success-text)}
+/* the receipt: the platform's, on the page */
+.receipt{gap:8px;padding:0;border-radius:0;background:none;box-shadow:none}
+.receipt .k{font-size:14px;line-height:24px;color:var(--sds-status-success-text)}
+.receipt .w{font-size:17px;font-weight:600;line-height:24px}
+.receipt .prog{height:8px;border-radius:4px;background:var(--sds-chart-grid);margin:8px 0}
+.receipt .prog i{background:var(--sds-status-success-strong);border-radius:4px}
+.receipt .row{font-size:14px;line-height:24px;color:var(--ink-2);gap:8px 24px}
+.receipt .fx{font-size:14px;line-height:24px;color:var(--ink-3)}
+
+/* ── the bar ── */
+.composer{padding:16px 24px 24px}
+.composer::before{inset:-24px 0 0;background:var(--ground);opacity:.94}
+.assist{width:min(912px,100%);padding:0 32px}
+.composer .bar{gap:12px}
+.composer .box{min-height:56px;border-radius:12px;padding:8px 8px 8px 20px;gap:16px;font-size:14px;color:var(--ink-2);box-shadow:none;background:var(--card)}
+.composer .box.suggest #ctext{color:var(--voice)}
+.composer .tabk{font-size:14px;height:24px;line-height:24px;color:var(--ink-3);box-shadow:none;background:var(--well)}
+.composer .cls{width:56px;border-radius:12px;background:var(--card);box-shadow:var(--shadow);color:var(--ink-2)}
+.composer .cls:hover{background:var(--sds-color-warm-gray-050);color:var(--ink)}
+.parse{left:52px;font-size:14px;line-height:24px;color:var(--ink-3)}
+
+/* ── the platform's sheet, the toast, a page not built ── */
+.scrim{background:rgba(28,26,23,.32)}
+.sheet{border-radius:16px;padding:24px;gap:16px;box-shadow:var(--float)}
+.sheet .k{font-size:14px;line-height:24px;color:var(--ink-3)}
+.sheet h5{font-size:22px;line-height:32px}
+.sheet .big{font-size:40px;font-weight:300;line-height:48px}
+.sheet .r{font-size:14px;line-height:24px;padding:12px 0;border-top-color:var(--rule)}
+.sheet .r span:first-child{color:var(--ink-3)}
+.sheet .acts{gap:12px}
+.sheet .note{font-size:14px;line-height:24px;color:var(--ink-3)}
+.toast{background:var(--sds-chart-tooltip-bg);font-size:14px;border-radius:8px}
+.nb h1{font-size:28px;line-height:32px} .nb p{color:var(--ink-2)}
+
+@media (max-width:760px){
+  .home,.nb{padding:0 16px} .col{padding:0 16px 160px;gap:24px} .assist{padding:0}
+  .bh{font-size:24px;line-height:32px}
+  .hero .hl{padding:16px 0 8px} .hero .hv{font-size:40px;line-height:48px}
+  .hero .hr{border-left:0;border-top:1px solid var(--rule);grid-template-columns:minmax(0,1fr)}
+  .hero .hr > div{border-left:0;border-top:1px solid var(--rule);padding:12px 0}
+  .hero .hr > div:first-child{border-top:0}
+  .hero .vv{font-size:22px}
+  .card,.card.lead{padding:16px} .card.lead .num{font-size:40px;line-height:48px}
+  .turn{gap:16px} .turn.later{padding-top:32px;margin-top:8px}
+  .qtitle,.qtitle.small{font-size:22px;line-height:28px}
+  .lead-p{font-size:16px;line-height:24px}
+  .figure .big{font-size:40px;line-height:48px}
+  .prepared{grid-template-columns:minmax(0,1fr);padding:16px}
+  .prepared .btn{grid-column:1;grid-row:auto;justify-self:start;margin-top:8px}
+  .draft{padding:16px}
+  .pays td:first-child{white-space:normal}
+  .composer{padding:12px 16px 16px} .composer .cls{width:48px}
+  .parse{left:20px}
+  .sheet{border-radius:16px 16px 0 0}
+}
+
+/* ══ Cards where they belong (Nov 23, 2026, the Network Assist v2.1 rule)
+   Language sits on the page: question titles, the trace and summary, the assistant's sentences, the asks rows.
+   Composed objects sit in white cards on a warm grey 025 page: on home, the day's figures and each insight; in a turn,
+   the figure, charts, tables, drafts, code and receipts. The AI's objects (ask field, bar, prepared action) keep the
+   1.5px multicolour border drawn over their white fill (.ring isolates its layers), with the glow behind.
+   The portal header and sidebar are unchanged. ══ */
+:root{--ground:var(--sds-color-warm-gray-025);--cardx:0 0 0 1px var(--sds-border-default),0 1px 2px rgba(28,26,23,.04)}
+body{background:var(--sds-color-warm-gray-025)}
+.ring{isolation:isolate}
+.ring::after{border-width:1.5px!important}
+/* home */
+.hero{background:var(--sds-bg-page);border:0;border-radius:12px;box-shadow:var(--cardx);padding:0 24px}
+.hero .hl{padding:24px 32px 16px 0}
+.hero .hr > div{padding:16px 0 16px 32px}
+.hero .hr > div:first-child{border-top:0}
+.card,.card.lead{padding:24px;border-radius:12px;background:var(--sds-bg-page);box-shadow:var(--cardx)}
+.card.lead:hover,.card.lead:focus-visible{translate:none;background:var(--sds-bg-page);box-shadow:0 0 0 1px var(--sds-border-strong),0 8px 24px -12px rgba(28,26,23,.18)}
+/* a turn: the composed objects */
+.figure,.chartsec,.paycard,.code,.receipt{padding:24px;border-radius:12px;background:var(--sds-bg-page);box-shadow:var(--cardx)}
+.draft{background:var(--sds-bg-page);box-shadow:var(--cardx)}
+.receipt.standing-r{background:var(--sds-bg-subtle);box-shadow:none}
+.prepared.sent{background:var(--sds-bg-subtle)}
+.prepared.sent::after,.prepared.sent::before{display:none}
+.chart .orow.pickable:hover .obg,.chart .orow.pickable:focus-visible .obg{fill:var(--sds-color-warm-gray-050)}
+@media (max-width:760px){
+  .hero{padding:0 16px} .hero .hl{padding:16px 0 8px}
+  .hero .hr > div{padding:12px 0}
+  .card,.card.lead{padding:16px}
+  .figure,.chartsec,.paycard,.code,.receipt,.draft{padding:16px}
+}
+
+/* ══ home as a normal page (Rich, Nov 23: "I don't want this centered column by default, only when in assist mode …
+   There's no clear boundary between nav and the page container.")
+   The chrome is white with a 1px edge: the header's bottom and the sidebar's right. The page behind it is warm grey 025.
+   Home fills the page container, left aligned, on a three-column grid: the page title and the briefing, the ask field,
+   the figures card across two columns with the lead insight beside it, the other two insights beneath.
+   Only the assist (an answer) uses the centred reading column. ══ */
+.appbar{background:var(--sds-bg-page);border-bottom:1px solid var(--sds-border-default)}
+.sb{background:var(--sds-bg-page);border-right:1px solid var(--sds-border-default)}
+.app[data-state="answer"] .sb{border-right-color:transparent}
+.sb a:hover{background:var(--sds-color-warm-gray-050)}
+.s-home{padding:32px 40px 64px}
+.home{width:auto;max-width:1440px;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start;
+  grid-template-areas:"ph ph ph" "bh bh bh" "ask ask ask" "hero hero lead" "i2 i3 lead"}
+.home .phead{grid-area:ph;display:grid;gap:4px}
+.home .pt{margin:0;font-size:28px;line-height:32px;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.home .byline{margin:0}
+.home .bh{grid-area:bh;margin:-8px 0 0;font-size:22px;line-height:32px;font-weight:400;letter-spacing:-.01em;color:var(--sds-status-info-text);max-width:72ch}
+.home .bh b{font-weight:600;color:var(--ink)}
+.home .asksec{grid-area:ask;padding-bottom:24px}
+.home .hero{grid-area:hero;margin:0}
+.insg{display:contents}
+.insg .card.lead{grid-area:lead;align-self:stretch}
+.insg .card:not(.lead):nth-child(2){grid-area:i2;align-self:stretch}
+.insg .card:not(.lead):nth-child(3){grid-area:i3;align-self:stretch}
+.insg .card:not(.lead) .num{margin-top:16px;padding-top:0}
+.app.typing .insg > *{opacity:.3}
+@media (max-width:1240px){
+  .home{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"ph ph" "bh bh" "ask ask" "hero hero" "lead i2" "lead i3"}
+}
+@media (max-width:760px){
+  .s-home{padding:24px 16px 48px}
+  .home{grid-template-columns:minmax(0,1fr);gap:16px;grid-template-areas:"ph" "bh" "ask" "hero" "lead" "i2" "i3"}
+  .home .pt{font-size:22px;line-height:28px}
+  .home .bh{font-size:17px;line-height:28px;margin:0}
+}
+
+/* ══ reading, comprehension, then action (Rich, Nov 23: "there's data below that has to be reviewed, which makes someone
+   scroll until those are out of view.") On home the ask comes after the data: the figures and insights first, the ask
+   field last, full width, in the page flow. Nothing on home is pinned; the bar pins only once the assist is active
+   (Rich: "The assist bar shouldn't stick to the bottom until it's in an active assist mode."). In a turn the order is the
+   sentence, the evidence, the action, the asks, then the bar. ══ */
+.home{grid-template-areas:"ph ph ph" "bh bh bh" "hero hero lead" "i2 i3 lead" "ask ask ask"}
+.home .asksec{position:relative;margin-top:8px;padding:0 0 32px;background:none;box-shadow:none}
+.home .rparse{bottom:4px}
+@media (max-width:1240px){
+  .home{grid-template-areas:"ph ph" "bh bh" "hero hero" "lead i2" "lead i3" "ask ask"}
+}
+@media (max-width:760px){
+  .home{grid-template-areas:"ph" "bh" "hero" "lead" "i2" "i3" "ask"}
+  .home .asksec{padding:0 0 28px}
+}
+
+@media (max-width:760px){ .home .rparse{right:0;white-space:normal;line-height:20px} .home .asksec{padding-bottom:48px} }
+
+/* ══ the ask sits between the figures and the insights (the decision from the first Network Assist rounds, restored Nov 23).
+   High on the page, easy to see and reach; once the assist is active it travels to the bar at the bottom. ══ */
+.home{grid-template-areas:"ph ph ph" "bh bh bh" "hero hero hero" "ask ask ask" "lead lead i2" "lead lead i3"}
+.home .asksec{margin:0}
+@media (max-width:1240px){
+  .home{grid-template-areas:"ph ph" "bh bh" "hero hero" "ask ask" "lead i2" "lead i3"}
+}
+@media (max-width:760px){
+  .home{grid-template-areas:"ph" "bh" "hero" "ask" "lead" "i2" "i3"}
+}
+
+/* ══ charts (CHARTS.md, Nov 23: "Make sure we don't just use progress bars when they're not useful, and charts are
+   functional and responsive.") All HTML, text at true size, a tooltip per mark, emphasis navy over light blue. ══ */
+.chart,.hcc{position:relative}
+.split .track{gap:2px}
+.figure.nosplit .cause{grid-template-columns:minmax(0,1fr) auto}
+.figure.nosplit .cause i{display:none}
+/* tooltip */
+.ctip{position:absolute;z-index:6;left:0;top:0;display:grid;padding:8px 12px;border-radius:8px;background:var(--sds-chart-tooltip-bg);color:var(--sds-chart-tooltip-text);font-size:14px;line-height:20px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s}
+.ctip.on{opacity:1} .ctip span{color:var(--sds-color-warm-gray-300)} .ctip b{font-weight:600}
+/* columns from zero */
+.cc{display:grid;grid-template-columns:var(--yw) minmax(0,1fr);grid-template-rows:var(--h) auto;column-gap:8px;row-gap:8px}
+.cc.has-now{margin-top:32px}
+.cc-y{position:relative;color:var(--sds-chart-axis-label);font-size:14px}
+.cc-y span{position:absolute;right:0;transform:translateY(50%);line-height:20px;white-space:nowrap}
+.cc-plot{position:relative}
+.cc-g{position:absolute;left:0;right:0;height:0;border-top:1px dotted var(--sds-chart-grid)}
+.cc-g.base{border-top:1px solid var(--sds-border-default)}
+.cc-cols{position:absolute;inset:0;display:grid;gap:4px}
+.cc-s{position:relative;outline:none;cursor:default}
+.cc-b{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:min(40px,100%);height:0;border-radius:4px 4px 0 0;background:var(--sds-chart-3);transition:height .6s cubic-bezier(.16,1,.3,1),background .15s}
+.cc-s.now .cc-b{background:var(--sds-chart-1)}
+.cc-s.bad .cc-b{background:var(--sds-status-error-text)}
+.cc-s:hover .cc-b,.cc-s:focus-visible .cc-b{background:var(--sds-chart-2)}
+.cc-s.now:hover .cc-b,.cc-s.now:focus-visible .cc-b{background:var(--sds-interactive-primary-hover)}
+.cc-s.bad:hover .cc-b{background:var(--sds-status-error-strong,var(--sds-status-error-text))}
+.cc-v{position:absolute;right:0;bottom:calc(var(--bh) + 4px);font-size:14px;line-height:20px;font-weight:600;color:var(--ink);white-space:nowrap}
+.cc-ev{font-style:normal;position:absolute;top:0;bottom:0;left:50%;border-left:2px dashed var(--sds-chart-2)}
+.cc-now{font-style:normal;position:absolute;top:-8px;bottom:0;border-left:1px solid var(--ink-2);z-index:1;pointer-events:none}
+.cc-now span{position:absolute;right:8px;top:-24px;font-size:14px;line-height:20px;color:var(--ink-2);white-space:nowrap}
+.cc-x{grid-column:2;display:grid;gap:4px;font-size:14px;line-height:20px;color:var(--sds-chart-axis-label)}
+.cc-x > span{display:flex;justify-content:center;white-space:nowrap;min-width:0}
+.cc-x > span.l{justify-content:flex-start} .cc-x > span.r{justify-content:flex-end}
+.cc-legend{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0 0 16px;font-size:14px;line-height:24px;color:var(--ink-2)}
+.cc-legend .sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:8px;vertical-align:-1px;background:var(--sds-chart-3)}
+.cc-legend .sw.bad{background:var(--sds-status-error-text)}
+.cc-legend .sw.next{background:none;border:2px dashed var(--sds-chart-2);width:8px;height:12px;border-width:0 0 0 2px;border-radius:0}
+.hero .hcc{margin:16px 0 8px}
+/* horizontal rows: ranked bars on a stated scale, or a meter list against a stated whole */
+.hb{display:grid;gap:8px}
+.hb-r{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr) minmax(88px,auto);column-gap:24px;row-gap:8px;align-items:center;padding:8px 0;outline:none}
+.hb-n{font-size:14px;line-height:24px;color:var(--ink)} .hb-n > span{display:block;color:var(--ink-3)}
+.hb-r.hot .hb-n{font-weight:600} .hb-r.hot .hb-n > span{font-weight:400}
+.hb-t{position:relative;height:16px}
+.hb.meter .hb-t{border-radius:4px;background:var(--sds-chart-grid)}
+.hb-t .g{position:absolute;top:-8px;bottom:-8px;border-left:1px dotted var(--sds-chart-grid)}
+.hb-t .g:first-child{border-left:1px solid var(--sds-border-default)}
+.hb-f{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:0 4px 4px 0;background:var(--sds-chart-3);transition:width .7s cubic-bezier(.16,1,.3,1),background .15s}
+.hb.meter .hb-f{border-radius:4px}
+.hb-r.hot .hb-f{background:var(--sds-chart-1)}
+.hb-r:hover .hb-f,.hb-r:focus-visible .hb-f{background:var(--sds-chart-2)} .hb-r.hot:hover .hb-f{background:var(--sds-interactive-primary-hover)}
+.hb-v{font-size:14px;line-height:24px;color:var(--ink);text-align:right;white-space:nowrap}
+.hb-r.hot .hb-v{font-weight:600}
+.hb-axis{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr) minmax(88px,auto);column-gap:24px;font-size:14px;line-height:20px;color:var(--sds-chart-axis-label)}
+.hb-at{position:relative;height:20px}
+.hb-at > span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap}
+.hb-at > span.l{transform:none} .hb-at > span.r{transform:translateX(-100%)}
+/* timeline: the plan hollow, the landing filled, the slip between, today a rule */
+.tl{display:grid;gap:4px}
+.tl-r{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr) auto;grid-template-areas:"n t v";column-gap:24px;row-gap:8px;align-items:center;padding:12px 16px;margin:0 -16px;border-radius:8px;cursor:pointer;outline:none}
+.tl-r:hover{background:var(--sds-color-warm-gray-050)}
+.tl-r:focus-visible{box-shadow:inset 0 0 0 2px var(--sds-border-focus,var(--sds-interactive-primary))}
+.tl-r.hot,.tl-r.hot:hover{background:var(--sds-nav-item-active-bg)}
+.tl-n{grid-area:n;font-size:14px;line-height:24px} .tl-n b{display:block;font-weight:600;color:var(--ink)} .tl-n span{color:var(--ink-3)}
+.tl-v{grid-area:v;font-size:14px;line-height:24px;color:var(--ink-2);text-align:right;white-space:nowrap}
+.tl-r.hot .tl-v{color:var(--sds-nav-item-active-text);font-weight:600}
+.tl-t{grid-area:t;position:relative;height:24px}
+.tl-t .base{position:absolute;left:0;right:0;top:50%;border-top:1px solid var(--sds-border-default)}
+.tl-t .today{position:absolute;top:-12px;bottom:-12px;border-left:1px dashed var(--ink-2)}
+.tl-t .slip{position:absolute;top:50%;height:2px;margin-top:-1px;width:0;background:var(--sds-chart-3);transition:width .7s cubic-bezier(.16,1,.3,1)}
+.tl-t .plan,.tl-t .land{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%}
+.tl-t .plan{border:2px solid var(--sds-chart-3);background:var(--sds-bg-page)}
+.tl-t .land{background:var(--sds-chart-3);box-shadow:0 0 0 2px var(--sds-bg-page)}
+.tl-r.hot .slip{background:var(--sds-chart-1)} .tl-r.hot .plan{border-color:var(--sds-chart-1)} .tl-r.hot .land{background:var(--sds-chart-1)}
+.tl-axis{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr) auto;column-gap:24px;font-size:14px;line-height:20px;color:var(--sds-chart-axis-label);padding-top:4px}
+.tl-at{grid-column:2;position:relative;height:20px}
+.tl-at > span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap}
+.tl-at > span.l{transform:none} .tl-at > span.r{transform:translateX(-100%)}
+.tl-at em{font-style:normal}
+@media (max-width:760px){
+  .cc-v{display:none}
+  .cc-x .opt{visibility:hidden}
+  .hb-r{grid-template-columns:minmax(0,1fr) auto} .hb-t{grid-column:1/-1;grid-row:2}
+  .hb-axis{grid-template-columns:minmax(0,1fr)} .hb-axis > span:first-child,.hb-axis > span:last-child{display:none}
+  .tl-r{grid-template-columns:minmax(0,1fr);grid-template-areas:"n" "v" "t";row-gap:4px;margin:0 -8px;padding:12px 8px}
+  .tl-v{text-align:left}
+  .tl-t{margin-top:4px}
+  .tl-axis{grid-template-columns:minmax(0,1fr)} .tl-at{grid-column:1}
+  .tl-at em,.tl-at .opt{display:none}
+}
+/* the timeline rows and its axis share one track: the value column is a fixed width, so dates line up with the marks */
+.tl-r,.tl-axis{grid-template-columns:minmax(0,200px) minmax(0,1fr) 224px}
+@media (max-width:760px){ .tl-r{grid-template-columns:minmax(0,1fr)} .tl-axis{grid-template-columns:minmax(0,1fr)} }
+
+/* ══ no dead space (Rich, Nov 23: "Sometimes there's dead space when I scroll in agent assist mode.")
+   A block waiting to appear takes no space until it does, then rises in; the room under the conversation is the bar's
+   height plus 32, not stacked paddings. Chip rows with no framing label read "Suggested". ══ */
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+#col .reveal:not(.in){display:none}
+#col .reveal.in{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+.mn{padding-bottom:0}
+.col{padding-bottom:128px}
+.sugg{padding-left:0;align-items:center;gap:12px}
+.sugg .k{display:flex;align-items:center;gap:12px;margin-right:4px;color:var(--sds-status-info-text);line-height:24px}
+@media (max-width:760px){ .col{padding-bottom:112px} .sugg{padding-left:0} }
+.s-answer{padding-bottom:0}
+
+/* ══ suggestions do not persist (Rich, Nov 23: "Suggested actions … shouldn't persist in the feed once an action has been taken.")
+   Once she acts, the earlier suggestion rows leave the feed; new suggestions appear at the end of the latest turn.
+   A fork is a choice she made, a record, and stays. ══ */
+#col .recs.done:not(.fork){display:none}

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>v5 · B · map the messages</title><link rel="stylesheet" href="v5.css"></head>
+<body>
+<header class="appbar"><div class="mark"><i>D</i><span>Developer Portal</span></div><div class="org"><b>Brightline Bank</b><span class="st">Sandbox</span></div><button class="date"><b>Friday, Mar 20</b><span>day 11 · next move Apr 2</span></button><div class="r"><span>Help</span><div class="u"><img src="../img/av-priya.webp" alt="">Priya Raghavan</div></div></header>
+
+<div class="app5">
+<aside class="rail5">
+  <div class="clock"><b>Friday, Mar 20</b><span>Day 11 of the route</span><span>Ramp May 14 · <span class="ok">on track</span></span></div>
+  <div class="lh">Their moves</div>
+  <div class="st done"><span class="dot"><i></i></span><div><span class="t">Day one · five requests</span><span class="s">2 landed · 3 out</span></div></div>
+  <div class="sub">
+    <div class="landed"><em>Chain · your CA</em><span>Mar 19</span></div>
+    <div class="landed"><em>Allowlist · Marcus</em><span>Mar 20</span></div>
+    <div><em>Firewall · NET-4471</em><span>Apr 2</span></div>
+    <div><em>Production credentials</em><span>May 4</span></div>
+    <div><em>Window · Ana</em><span>held</span></div>
+  </div>
+  <div class="lh">Your build</div>
+  <div class="st done"><span class="dot"><i></i></span><div><span class="t">First successful call</span><span class="s">approved · 48 ms</span></div></div>
+  <div class="st done"><span class="dot"><i></i></span><div><span class="t">Connect your agents</span><span class="s">brightline-agent</span></div></div>
+  <div class="st now"><span class="dot"><i></i></span><div><span class="t">Map the messages</span><span class="s">38 of 41 · one field to fix</span></div></div>
+  <div class="st"><span class="dot"><i></i></span><div><span class="t">Events</span><span class="s">webhooks</span></div></div>
+  <div class="st"><span class="dot"><i></i></span><div><span class="t">The back office</span><span class="s">Leah signs the reconciliation</span></div></div>
+  <div class="st wait"><span class="dot"><i></i></span><div><span class="t">Secure the connection</span><span class="s">after the firewall change, Apr 2</span></div></div>
+  <div class="st"><span class="dot"><i></i></span><div><span class="t">Configuration</span><span class="s">generates 21 cases</span></div></div>
+  <div class="st"><span class="dot"><i></i></span><div><span class="t">Certify, in rounds</span><span class="s">Ana reviews</span></div></div>
+  <div class="st"><span class="dot"><i></i></span><div><span class="t">Readiness and go/no-go</span><span class="s">May 11</span></div></div>
+  <div class="st"><span class="dot"><i></i></span><div><span class="t">Ramp</span><span class="s">May 14 to 26</span></div></div>
+  <div class="foot">Marlow &amp; Third first · the gateway stays until Sep 23<br><a href="#">Show the integration</a></div>
+</aside>
+
+<main class="col5">
+  <section class="card turn">
+    <div class="summary"><i class="aimark"></i><span>Read the authorization specification against your host · your agent ran 41 scenarios in 6 minutes · read the 3 that missed</span><u>3 steps</u></div>
+    <h1>Map the authorization messages</h1>
+    <p class="lead">38 of 41 scenarios answer correctly on the first run, and the three misses are one field in partial approvals. Fix <b>amount_authorized</b> in your host and rerun that group; nothing else is touched.</p>
+    <div class="fig">
+      <div><span class="v">38<small>of 41</small></span><span class="k">answered correctly</span></div>
+      <div><span class="v needs">3</span><span class="k">missed · one field</span></div>
+      <div><span class="v">71<small>ms</small></span><span class="k">p99 round trip · the network's share is 44</span></div>
+    </div>
+  </section>
+
+  <div class="prepared ring"><span class="k"><i class="aimark"></i>Ready · your own tooling, runs in place</span><span class="w">Rerun partial approvals after the fix in your code</span><span class="m">6 scenarios · from <b>brightline-agent</b> over MCP · about a minute</span><button class="btn">Rerun the group</button></div>
+
+  <div class="asks"><span class="k"><i class="aimark"></i>Before you decide</span><button class="chip">Show me the three requests side by side</button><button class="chip">Which test cards return a partial?</button></div>
+
+  <section class="card">
+    <div class="h"><b>What missed</b><span>three partial approvals · the same field each time</span></div>
+    <div class="rows">
+      <div class="r hd"><span>Scenario · approved of asked</span><span>Your host sent</span><span>Expected</span><span>Field</span></div>
+      <div class="r"><b>PART-04 · $40.00 of $58.20</b><span class="miss">5820</span><span>4000</span><code>amount_authorized</code></div>
+      <div class="r"><b>PART-05 · $52.12 of $75.00</b><span class="miss">7500</span><span>5212</span><code>amount_authorized</code></div>
+      <div class="r"><b>PART-06 · $80.00 of $120.00</b><span class="miss">12000</span><span>8000</span><code>amount_authorized</code></div>
+    </div>
+    <div class="refs"><span class="k">Reference</span><a class="on" href="#">Authorization response · amount_authorized</a><a href="#">Walkthrough · handling a partial approval</a><a href="#">Test cards for partial approvals</a></div>
+  </section>
+
+  <section class="card">
+    <div class="h"><b>The 41 scenarios, by group</b><span>one cell each · red missed</span></div>
+    <div class="grid">
+      <div class="g"><div class="n">Authorization<span>approvals, declines, reversals</span></div><div class="cells"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i></div><div class="c">12 of 12</div></div>
+      <div class="g"><div class="n">Reversals and advices<span>full, partial, late, duplicate</span></div><div class="cells"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i></div><div class="c">9 of 9</div></div>
+      <div class="g"><div class="n">Timeouts and stand-in<span>no answer, slow answer, stand-in</span></div><div class="cells"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i></div><div class="c">7 of 7</div></div>
+      <div class="g"><div class="n">Partial approvals<span>approved less than asked</span></div><div class="cells"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="miss"></i><i class="miss"></i><i class="miss"></i></div><div class="c miss">3 of 6</div></div>
+      <div class="g"><div class="n">Transit<span>tap to ride, fare caps</span></div><div class="cells"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i></div><div class="c">7 of 7</div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="h"><b>Round trip by group</b><span>p99 from your host, in ms · dashed is the network's 44</span></div>
+    <div class="bars">
+      <div class="b"><span class="n">Authorization</span><div class="track"><i style="width:55.8%"></i></div><span class="val">67</span></div>
+      <div class="b"><span class="n">Reversals and advices</span><div class="track"><i style="width:59.2%"></i></div><span class="val">71</span></div>
+      <div class="b"><span class="n">Timeouts and stand-in</span><div class="track"><i style="width:57.5%"></i></div><span class="val">69</span></div>
+      <div class="b"><span class="n">Partial approvals</span><div class="track"><i style="width:55.0%"></i></div><span class="val">66</span></div>
+      <div class="b"><span class="n">Transit</span><div class="track"><i class="hot" style="width:60.0%"></i></div><span class="val">72</span></div>
+      <div class="b"><span></span><div class="scale"><i style="left:0">0</i><i style="left:36.67%;transform:translateX(-50%)">44</i><i style="left:100%;transform:translateX(-100%)">120 · ramp threshold</i></div><span></span></div>
+    </div>
+  </section>
+</main>
+
+<aside class="pane5">
+  <div class="top"><span>API reference › Authorizations › <b>Response fields</b></span><button class="close" aria-label="Close">✕</button></div>
+  <h2>amount_authorized</h2>
+  <p>The amount the issuer approved, in minor units. It equals <code>amount</code> on a full approval and is lower on a partial approval. Your host must settle for this value, never for the amount asked.</p>
+  <div class="here"><i class="aimark"></i><span>Your three misses returned the amount asked. The network expects the approved amount: <code>amount_authorized</code> on the response, not <code>amount</code> on the request.</span></div>
+  <table><tr><th>Field</th><th>Differs from amount when</th></tr>
+    <tr><td><code>amount_authorized</code><br><span style="color:var(--ink-3)">integer, minor units</span></td><td>A partial approval, response code 10</td></tr>
+    <tr><td><code>decision</code><br><span style="color:var(--ink-3)">approved, declined, partial</span></td><td>Partial sets it to partial</td></tr>
+    <tr><td><code>balance_available</code><br><span style="color:var(--ink-3)">integer, optional</span></td><td>Prepaid and fuel, when the issuer sends it</td></tr>
+  </table>
+  <h3>Walkthrough · handle a partial approval</h3>
+  <ol>
+    <li>Read <code>decision</code>. On <code>partial</code>, take <code>amount_authorized</code> as the approved amount.</li>
+    <li>Map it to ISO 8583 field 4 on the response to your terminal, and keep the asked amount in field 95 so the terminal can prompt for the balance.</li>
+    <li>Settle for <code>amount_authorized</code>. The clearing record must not exceed it; the network rejects the line otherwise.</li>
+  </ol>
+  <pre><span class="c">// after the response lands</span>
+const approved =
+  auth.decision === "partial"
+    ? auth.amountAuthorized  <span class="c">// 4000</span>
+    : auth.amount;
+
+iso.set(4, approved);      <span class="c">// DE4</span>
+iso.set(95, auth.amount);  <span class="c">// DE95</span></pre>
+  <div class="call">Partial approvals are mandatory for fuel, prepaid and transit merchants. Three of your 21 certification cases exercise them.</div>
+  <div class="foot"><a href="#">Open the full authorization reference</a><a href="#">Test cards · partial approvals</a><a href="#">Ask your agent to pull this section</a></div>
+</aside>
+</div>
+
+<div class="composer"><div class="assist"><div class="box ring"><i class="aimark"></i><span class="cin">Show me the three requests side by side</span><kbd>Tab</kbd><span class="send"><svg viewBox="0 0 14 14"><path d="M7 12V2M2.5 6.5 7 2l4.5 4.5"/></svg></span></div><button class="cls"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div></div>
+</body></html>

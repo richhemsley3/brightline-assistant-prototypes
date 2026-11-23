@@ -1,0 +1,210 @@
+{
+ "base": "http://localhost:8101/?fast",
+ "done": {
+  "early": "d0,s1",
+  "built": "d0,s1,agents,mapmsg,s3",
+  "office": "d0,s1,agents,mapmsg,s3,office",
+  "secured": "d0,s1,agents,mapmsg,s3,office,s4",
+  "configured": "d0,s1,agents,mapmsg,s3,office,s4,s5",
+  "certified": "d0,s1,agents,mapmsg,s3,office,s4,s5,s6",
+  "ready": "d0,s1,agents,mapmsg,s3,office,s4,s5,s6,s7"
+ },
+ "dayone": "reqnet,csr,fwticket",
+ "states": [
+  {
+   "id": "home",
+   "q": "auto=home",
+   "note": "the ask alone"
+  },
+  {
+   "id": "route",
+   "q": "auto=route",
+   "note": "day one; tiles say 5 to start today; Next offers Day one"
+  },
+  {
+   "id": "d0",
+   "q": "auto=d0",
+   "note": "checklist of five with owners and dues; first prepared request to Marcus"
+  },
+  {
+   "id": "d0-after",
+   "q": "auto=d0&done=d0&acts=reqnet,csr,fwticket",
+   "note": "all three sent; checklist all out; no prepared card; Next"
+  },
+  {
+   "id": "waiting",
+   "q": "auto=waiting&acts=reqnet,csr,fwticket&done=d0",
+   "note": "what am I waiting on: five rows with whose/since/due/state"
+  },
+  {
+   "id": "leadtimes",
+   "q": "auto=leadtimes&acts=reqnet",
+   "note": "why these take so long; ends in the next pending request"
+  },
+  {
+   "id": "s1",
+   "q": "auto=s1&done=d0&acts=reqnet,csr,fwticket",
+   "note": "first call; MCP branch default; before-you-decide informs"
+  },
+  {
+   "id": "first",
+   "q": "auto=first&done=d0,s1&acts=reqnet,csr,fwticket,agentkey",
+   "note": "what the first call did"
+  },
+  {
+   "id": "s2",
+   "q": "auto=s2&done=d0,s1&acts=reqnet,csr,fwticket,agentkey",
+   "note": "note to Dana; not a step"
+  },
+  {
+   "id": "agents",
+   "q": "auto=agents&done=d0,s1&acts=reqnet,csr,fwticket,key",
+   "note": "connect your agents; connect line; agent key"
+  },
+  {
+   "id": "scope",
+   "q": "auto=scope&done=d0,s1&acts=reqnet,csr,fwticket,key",
+   "note": "what the key can never do; ends in agentkey"
+  },
+  {
+   "id": "mapmsg",
+   "q": "auto=mapmsg&done=d0,s1,agents&acts=reqnet,csr,fwticket,agentkey",
+   "note": "41 scenarios in five groups; run from my agent"
+  },
+  {
+   "id": "mapmsg-ran",
+   "q": "auto=mapmsg&done=d0,s1,agents&acts=reqnet,csr,fwticket,agentkey,runmap",
+   "note": "after the run: 38 of 41; before-you-decide offers what missed; rerun prepared"
+  },
+  {
+   "id": "mismatch",
+   "q": "auto=mismatch&done=d0,s1,agents&acts=reqnet,csr,fwticket,agentkey,runmap",
+   "note": "3 of 41; the one field; rerun"
+  },
+  {
+   "id": "s3",
+   "q": "auto=s3&done=d0,s1,agents,mapmsg&acts=reqnet,csr,fwticket,agentkey,runmap,rerunmap",
+   "note": "events; fork webhooks/polling only; endpoint prepared; local and watch offered"
+  },
+  {
+   "id": "local",
+   "q": "auto=local&done=d0,s1,agents,mapmsg,s3&acts=reqnet,csr,fwticket,agentkey,endpoint",
+   "note": "forward to localhost"
+  },
+  {
+   "id": "office",
+   "q": "auto=office&done=d0,s1,agents,mapmsg,s3&acts=reqnet,csr,fwticket,agentkey,endpoint",
+   "note": "back office: checklist, draft to Leah, sample file prepared"
+  },
+  {
+   "id": "ledger",
+   "q": "auto=ledger&done=d0,s1,agents,mapmsg,s3&acts=reqnet,csr,fwticket,agentkey,endpoint",
+   "note": "how a settlement line maps to a ledger entry"
+  },
+  {
+   "id": "wait_fin",
+   "q": "auto=wait_fin&today=2026-03-26&visited=2026-03-20&done=d0,s1,agents,mapmsg,s3,office&acts=reqnet,csr,fwticket,agentkey,endpoint,file,dispute,recon",
+   "note": "Leah's move; meanwhile; nudge Leah"
+  },
+  {
+   "id": "ret-mar20",
+   "q": "auto=ret&today=2026-03-20&visited=2026-03-10&done=d0,s1,agents,mapmsg&acts=reqnet,csr,fwticket,agentkey,runmap,rerunmap",
+   "note": "since Mar 10: chain and allowlist landed; firewall to come"
+  },
+  {
+   "id": "wait_conn",
+   "q": "auto=s4&done=d0,s1,agents,mapmsg,s3,office&acts=reqnet,csr,fwticket,agentkey,endpoint,file,dispute,recon",
+   "note": "s4 gated: waiting to secure the connection; nudge"
+  },
+  {
+   "id": "s4",
+   "q": "auto=s4&today=2026-04-07&visited=2026-04-02&done=d0,s1,agents,mapmsg,s3,office&acts=reqnet,csr,fwticket,agentkey,endpoint,file,dispute,recon&long=allowlist,cert,firewall",
+   "note": "landed: four objects, chain prepared"
+  },
+  {
+   "id": "mtls",
+   "q": "auto=mtls&today=2026-04-07&done=d0,s1,agents,mapmsg,s3,office&acts=reqnet,csr,fwticket&long=allowlist,cert,firewall",
+   "note": "what the handshake proves; ends in chain"
+  },
+  {
+   "id": "fix",
+   "q": "auto=fix&today=2026-04-07&done=d0,s1,agents,mapmsg,s3,office&acts=reqnet,csr,fwticket,chain&long=allowlist,cert,firewall",
+   "note": "12 failed; the corrected chain"
+  },
+  {
+   "id": "s5",
+   "q": "auto=s5&today=2026-04-08&done=d0,s1,agents,mapmsg,s3,office,s4&acts=reqnet,csr,fwticket,chain,chainfix&long=allowlist,cert,firewall",
+   "note": "configuration; confirm generates 21 cases"
+  },
+  {
+   "id": "cases",
+   "q": "auto=cases&today=2026-04-08&done=d0,s1,agents,mapmsg,s3,office,s4&acts=reqnet,csr,fwticket&long=allowlist,cert,firewall",
+   "note": "the groups as bars; ends in config"
+  },
+  {
+   "id": "s6",
+   "q": "auto=s6&today=2026-04-08&done=d0,s1,agents,mapmsg,s3,office,s4,s5&acts=reqnet,csr,fwticket,config&long=allowlist,cert,firewall",
+   "note": "certify in rounds; runner chips; run prepared"
+  },
+  {
+   "id": "fail",
+   "q": "auto=fail&today=2026-04-08&done=d0,s1,agents,mapmsg,s3,office,s4,s5&acts=reqnet,csr,fwticket,config,run&long=allowlist,cert,firewall",
+   "note": "3 of 21; rounding; rerun"
+  },
+  {
+   "id": "wait_ana",
+   "q": "auto=wait_ana&today=2026-04-09&visited=2026-04-08&done=d0,s1,agents,mapmsg,s3,office,s4,s5&acts=reqnet,csr,fwticket,config,run,rounding,submit&acted=2026-04-08&long=allowlist,cert,firewall&rounds=1",
+   "note": "Ana's review since Apr 8, due Apr 13; nudge Ana"
+  },
+  {
+   "id": "review",
+   "q": "auto=review&today=2026-04-13&visited=2026-04-09&done=d0,s1,agents,mapmsg,s3,office,s4,s5&acts=reqnet,csr,fwticket,config,run,rounding,submit&acted=2026-04-08&long=allowlist,cert,firewall&rounds=1",
+   "note": "Ana's two comments; round 2 prepared"
+  },
+  {
+   "id": "wait_prod",
+   "q": "auto=s7&today=2026-04-15&done=d0,s1,agents,mapmsg,s3,office,s4,s5,s6&acts=reqnet,csr,fwticket,config,run,rounding,submit,round2,window&long=allowlist,cert,firewall,window&rounds=2",
+   "note": "s7 gated on production credentials; wait on Marcus"
+  },
+  {
+   "id": "s7",
+   "q": "auto=s7&today=2026-05-04&visited=2026-04-15&done=d0,s1,agents,mapmsg,s3,office,s4,s5,s6&acts=reqnet,csr,fwticket,config,run,rounding,submit,round2,window&long=all&rounds=2",
+   "note": "readiness: objects and readiness rows; production key prepared"
+  },
+  {
+   "id": "morning",
+   "q": "auto=morning&today=2026-05-04&done=d0,s1,agents,mapmsg,s3,office,s4,s5,s6&acts=reqnet,csr,fwticket&long=all&rounds=2",
+   "note": "what happens on the first morning"
+  },
+  {
+   "id": "ramp",
+   "q": "auto=ramp&today=2026-05-14&done=d0,s1,agents,mapmsg,s3,office,s4,s5,s6,s7&acts=reqnet,csr,fwticket,decision&long=all&rounds=2",
+   "note": "ramp: measures vs gateway; pilot prepared; reroute always here"
+  },
+  {
+   "id": "wait_file",
+   "q": "auto=wait_file&today=2026-05-14&done=d0,s1,agents,mapmsg,s3,office,s4,s5,s6,s7&acts=reqnet,csr,fwticket,decision,pilot&long=all&rounds=2&ramp=1",
+   "note": "the first file reconciles tomorrow 6:14"
+  },
+  {
+   "id": "ramp-10",
+   "q": "auto=ramp&today=2026-05-18&visited=2026-05-14&done=d0,s1,agents,mapmsg,s3,office,s4,s5,s6,s7&acts=reqnet,csr,fwticket,decision,pilot&acted=2026-05-14&long=all&rounds=2&ramp=1",
+   "note": "after the gate: 10% prepared"
+  },
+  {
+   "id": "thresholds",
+   "q": "auto=thresholds&today=2026-05-14&done=d0,s1,agents,mapmsg,s3,office,s4,s5,s6,s7&acts=reqnet,csr,fwticket,decision&long=all",
+   "note": "the four thresholds"
+  },
+  {
+   "id": "operate",
+   "q": "auto=operate&today=2026-05-26&visited=2026-05-21&done=d0,s1,agents,mapmsg,s3,office,s4,s5,s6,s7,ramp&acts=reqnet,csr,fwticket,decision,pilot,r10,r50,r100&long=all&rounds=2&ramp=100",
+   "note": "the hand-off; continue in the Developer Portal"
+  },
+  {
+   "id": "why",
+   "q": "auto=why",
+   "note": "why these steps: eleven on two tracks"
+  }
+ ]
+}

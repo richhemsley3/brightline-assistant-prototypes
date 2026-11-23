@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Brightline Assist</title>
+<meta name="description" content="The Brightline portals after onboarding, with an assistant that briefs, answers, and prepares actions for a person to approve. A concept prototype; everything in it is invented.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&display=swap">
+<link rel="stylesheet" href="design-system/tokens/colors.css">
+<link rel="stylesheet" href="design-system/tokens/typography.css">
+<link rel="stylesheet" href="design-system/tokens/spacing.css">
+<link rel="stylesheet" href="design-system/gn.css">
+<link rel="stylesheet" href="assist.css">
+</head>
+<body>
+
+<!-- sign in: who you are for this prototype. Refresh to come back here. -->
+<main class="as-signin" id="signin">
+  <div class="as-signin-b">
+    <div class="gn-sidebar-mark as-signin-mark"><i>D</i><span>Discover Global Network</span></div>
+    <h1>Sign in</h1>
+    <p>Choose who you are. The portal opens where they left it on the morning of June 2.</p>
+    <div class="gn-rows as-accounts" id="accounts"></div>
+    <p class="as-signin-f">Brightline Bank, its merchants, every person and every figure are invented.</p>
+  </div>
+</main>
+
+<!-- the workspace: one header across the portal, a sidebar of words, white content -->
+<div class="gn-app gn-app--header" id="app" hidden>
+  <a class="as-skip" href="#main">Skip to content</a>
+  <header class="gn-header" id="hdr"></header>
+  <div class="gn-app-b">
+    <aside class="gn-sidebar" id="sb"></aside>
+    <main class="gn-main as-main" id="main" tabindex="-1"></main>
+  </div>
+</div>
+
+<div class="gn-scrim" id="scrim"></div>
+<div class="gn-float as-sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetT" hidden></div>
+<div class="gn-toast gn-toast--fixed" id="toast" role="status" aria-live="polite"></div>
+<div id="live" class="as-sr" aria-live="polite"></div>
+
+<script src="design-system/icons.js"></script>
+<script src="design-system/gn-charts.js"></script>
+<script src="data.js"></script>
+<script src="assist.js"></script>
+</body>
+</html>

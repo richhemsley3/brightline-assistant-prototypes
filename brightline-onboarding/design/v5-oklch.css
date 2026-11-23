@@ -1,0 +1,299 @@
+/* Brightline Onboarding · v5 · the disciplined pass
+   Colour: ink and one warm grey. Orange on the commit and on what needs her. Green only as a done mark. Nothing else.
+   Type: Proxima Nova. 28 title · 17 lead · 48 light figure · 14 everything else · 14 mono for numbers. No text under 14.
+   Space: an 8px grid. Cards pad 24. Rows 48 tall. Gaps 24 between cards, 16 inside. One shadow for cards, no hairlines around them.
+   Order: what she does first (the prepared action, the next asks), then what informs it. */
+@font-face{font-family:"Proxima Nova";src:local("Proxima Nova Light"),local("ProximaNova-Light"),url("fonts/ProximaNova-Light.otf") format("opentype");font-weight:300;font-display:swap}
+@font-face{font-family:"Proxima Nova";src:local("Proxima Nova"),local("ProximaNova-Regular"),url("fonts/ProximaNova-Reg.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Proxima Nova";src:local("Proxima Nova Semibold"),local("ProximaNova-Semibold"),url("fonts/ProximaNova-Sbold.otf") format("opentype");font-weight:600;font-display:swap}
+:root{
+  --ground:#F4F3F0; --card:#FFFFFF; --well:#F4F3F0;
+  --ink:#1C1A17; --ink-2:#5E5B55; --ink-3:#8C8982; --rule:#E6E3DD;
+  --orange:#FE6200; --orange-d:#E55800; --green:#2F7A3E;
+  --flow:linear-gradient(90deg,#3144B7,#9EAAFC 18%,#FE6200 34%,#9EAAFC 50%,#3144B7 66%,#9EAAFC 82%,#FE6200);
+  --shadow:0 1px 2px rgba(28,26,23,.05),0 8px 24px -16px rgba(28,26,23,.18);
+  --font:"Proxima Nova",-apple-system,"Segoe UI",Roboto,sans-serif; --mono:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --rail:288px; --pane:432px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ground);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+b{font-weight:600}
+code,.mono{font-family:var(--mono);font-size:14px}
+@keyframes drift{from{background-position:0 0,0% 50%}to{background-position:0 0,100% 50%}}
+@keyframes driftg{from{background-position:0% 50%}to{background-position:100% 50%}}
+.ring{position:relative;isolation:isolate}
+.ring::after{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;pointer-events:none;border:1px solid transparent;background:linear-gradient(var(--card),var(--card)) padding-box,var(--flow) border-box;background-size:100% 100%,300% 100%;animation:drift 10s ease-in-out infinite alternate}
+.ring::before{content:"";position:absolute;inset:6px 12px;border-radius:inherit;z-index:-2;pointer-events:none;background:var(--flow);background-size:300% 100%;animation:driftg 10s ease-in-out infinite alternate;filter:blur(14px);opacity:.2}
+.aimark{display:inline-block;width:12px;height:12px;border-radius:50%;background:conic-gradient(from 0deg,#3144B7,#9EAAFC,#FE6200,#9EAAFC,#3144B7);-webkit-mask:radial-gradient(circle,transparent 3.3px,#000 4px);mask:radial-gradient(circle,transparent 3.3px,#000 4px);flex:none}
+
+/* header · 56 */
+.appbar{position:sticky;top:0;z-index:30;height:56px;background:var(--card);border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:24px;padding:0 24px}
+.appbar .mark{display:flex;align-items:center;gap:12px;font-weight:600}
+.appbar .mark i{width:24px;height:24px;border-radius:6px;background:var(--ink);color:#fff;display:grid;place-items:center;font-style:normal;font-size:13px}
+.appbar .org{display:flex;align-items:center;gap:12px;color:var(--ink-2);padding-left:24px;border-left:1px solid var(--rule)}
+.appbar .org b{font-weight:400;color:var(--ink)} .appbar .org .st{color:var(--green)}
+.appbar .date{display:inline-flex;align-items:center;gap:12px;height:32px;padding:0 12px;border-radius:8px;background:var(--well);color:var(--ink)}
+.appbar .date b{font-weight:600} .appbar .date span{color:var(--ink-2)}
+.appbar .r{margin-left:auto;display:flex;align-items:center;gap:24px;color:var(--ink-2)}
+.appbar .u{display:flex;align-items:center;gap:12px;color:var(--ink)} .appbar .u img{width:28px;height:28px;border-radius:50%;object-fit:cover}
+
+/* regions */
+.app5{display:grid;grid-template-columns:var(--rail) minmax(0,1fr) var(--pane);min-height:calc(100vh - 56px)}
+.app5.nopane{grid-template-columns:var(--rail) minmax(0,1fr)}
+
+/* the rail · the route, always in view */
+.rail5{position:sticky;top:56px;height:calc(100vh - 56px);overflow:auto;background:var(--card);border-right:1px solid var(--rule);padding:24px 16px 24px 24px;display:flex;flex-direction:column}
+.rail5 .clock{padding:0 8px 16px}
+.rail5 .clock b{display:block;font-size:17px;font-weight:600;line-height:24px}
+.rail5 .clock span{display:block;color:var(--ink-2);line-height:24px}
+.rail5 .clock .ok{color:var(--green)}
+.rail5 .lh{color:var(--ink-3);line-height:24px;padding:16px 8px 0}
+.rail5 .st{display:grid;grid-template-columns:24px minmax(0,1fr);gap:12px;align-items:start;padding:12px 8px;border-radius:8px;color:var(--ink-2);line-height:24px}
+.rail5 .st .dot{width:24px;height:24px;display:grid;place-items:center}
+.rail5 .st .dot i{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink-3);display:block}
+.rail5 .st.done .dot i{background:var(--green);border-color:var(--green)}
+.rail5 .st.done{color:var(--ink-3)}
+.rail5 .st.now{background:var(--well);color:var(--ink);box-shadow:inset 3px 0 0 var(--orange)}
+.rail5 .st.now .dot i{border-color:var(--orange);border-width:3px}
+.rail5 .st.wait .dot i{border-style:dashed}
+.rail5 .st .t{display:block} .rail5 .st.now .t{font-weight:600}
+.rail5 .st .s{display:block;color:var(--ink-3)}
+.rail5 .sub{padding:0 8px 8px 44px;display:grid}
+.rail5 .sub div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;line-height:24px;color:var(--ink-3)}
+.rail5 .sub .landed em{font-style:normal;color:var(--ink-3)} .rail5 .sub em{font-style:normal;color:var(--ink-2)}
+.rail5 .sub .landed span{color:var(--green)}
+.rail5 .foot{margin-top:auto;padding:24px 8px 0;color:var(--ink-3);line-height:24px}
+.rail5 .foot a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+/* the working column · one 24px rhythm */
+.col5{min-width:0;padding:24px 24px 160px;display:grid;align-content:start;gap:24px;max-width:960px}
+.card{background:var(--card);border-radius:12px;box-shadow:var(--shadow);padding:24px}
+.turn{display:grid;gap:16px}
+.turn .summary{display:flex;align-items:center;gap:12px;color:var(--ink-3);line-height:24px}
+.turn .summary .aimark{flex:none}
+.turn .summary span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.turn .summary u{text-decoration:none;color:var(--ink-2);white-space:nowrap;border-bottom:1px dotted var(--ink-3)}
+.turn h1{font-size:28px;font-weight:600;line-height:32px;letter-spacing:-.02em;margin:0}
+.turn .lead{font-size:17px;line-height:28px;color:var(--ink);margin:0;max-width:60ch}
+.turn .lead b{font-weight:600}
+.turn .fig{display:grid;grid-template-columns:repeat(3,auto);gap:0 48px;justify-content:start;padding-top:8px}
+.turn .fig div{display:grid;gap:4px}
+.turn .fig .v{font-size:48px;font-weight:300;line-height:48px;letter-spacing:-.03em;white-space:nowrap}
+.turn .fig .v small{font-size:17px;font-weight:300;color:var(--ink-2);margin-left:6px;letter-spacing:0}
+.turn .fig .v.needs{color:var(--orange)}
+.turn .fig .k{color:var(--ink-2);line-height:24px}
+
+/* the prepared action · the biggest thing on the page */
+.prepared{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 32px;align-items:center;padding:24px;border-radius:12px;background:var(--card);box-shadow:var(--shadow)}
+.prepared .k{grid-column:1;display:flex;gap:12px;align-items:center;color:var(--ink-3);line-height:24px}
+.prepared .w{grid-column:1;font-size:22px;font-weight:600;line-height:32px;letter-spacing:-.015em}
+.prepared .m{grid-column:1;color:var(--ink-2);line-height:24px} .prepared .m b{color:var(--ink)}
+.prepared .btn{grid-column:2;grid-row:1/4}
+.btn{display:inline-flex;align-items:center;height:48px;padding:0 24px;border-radius:10px;background:var(--orange);color:#fff;font-size:15px;font-weight:600}
+.btn:hover{background:var(--orange-d)}
+.asks{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.asks .k{display:flex;align-items:center;gap:12px;color:var(--ink-3);line-height:24px;margin-right:4px}
+.chip{display:inline-flex;align-items:center;height:40px;padding:0 16px;border-radius:10px;background:var(--card);box-shadow:var(--shadow);color:var(--ink);font-weight:600}
+.chip:hover{background:var(--well)}
+
+/* instruments inside cards */
+.card .h{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:16px}
+.card .h b{font-size:17px;font-weight:600;line-height:24px} .card .h span{color:var(--ink-3);line-height:24px}
+.grid{display:grid;gap:8px}
+.grid .g{display:grid;grid-template-columns:200px minmax(0,1fr) 72px;align-items:center;gap:24px;min-height:40px}
+.grid .g .n{line-height:20px} .grid .g .n span{display:block;color:var(--ink-3)}
+.grid .cells{display:flex;flex-wrap:wrap;gap:4px}
+.grid .cells i{width:20px;height:20px;border-radius:4px;background:var(--rule)}
+.grid .cells i.ok{background:#CFCBC3} .grid .cells i.miss{background:var(--orange)}
+.grid .c{text-align:right;font-family:var(--mono)} .grid .c.miss{color:var(--orange-d);font-weight:600}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{font-family:var(--mono);font-size:14px;fill:var(--ink-2)}
+.chart text.lbl{font-family:var(--font);fill:var(--ink)}
+.chart .grid-l{stroke:var(--rule)} .chart .ref{stroke:var(--ink-3);stroke-dasharray:3 4}
+.chart .bar{fill:#CFCBC3} .chart .bar.hot{fill:var(--ink-2)}
+.rows{display:grid}
+.rows .r{display:grid;grid-template-columns:minmax(0,1.6fr) 1fr 1fr 1fr;gap:24px;align-items:center;min-height:48px;border-top:1px solid var(--rule);color:var(--ink-2)}
+.rows .r.hd{border-top:0;min-height:32px;align-items:end;padding-bottom:8px;color:var(--ink-3)}
+.rows .r b{font-weight:600;color:var(--ink)} .rows .r .miss{color:var(--orange-d);font-weight:600} .rows .r code{color:var(--ink)}
+.refs{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;padding-top:16px;margin-top:16px;border-top:1px solid var(--rule)}
+.refs .k{color:var(--ink-3);line-height:24px}
+.refs a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--ink-3);line-height:24px}
+.refs a.on{text-decoration-color:var(--orange);text-decoration-thickness:2px}
+
+/* the reading pane */
+.pane5{position:sticky;top:56px;height:calc(100vh - 56px);overflow:auto;background:var(--card);border-left:1px solid var(--rule);padding:24px;line-height:24px;color:var(--ink-2)}
+.pane5 .top{display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--ink-3);margin-bottom:16px}
+.pane5 .top b{font-weight:400;color:var(--ink)}
+.pane5 .close{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;color:var(--ink-2)} .pane5 .close:hover{background:var(--well)}
+.pane5 h2{font-size:22px;font-weight:600;line-height:32px;letter-spacing:-.015em;margin:0 0 8px;color:var(--ink)}
+.pane5 h3{font-size:14px;font-weight:600;line-height:24px;margin:24px 0 8px;color:var(--ink)}
+.pane5 p{margin:0 0 16px}
+.pane5 code{color:var(--ink);background:var(--well);padding:2px 6px;border-radius:4px}
+.pane5 pre{font-family:var(--mono);font-size:14px;line-height:24px;background:var(--well);color:var(--ink);border-radius:8px;padding:16px;overflow:auto;white-space:pre-wrap;margin:16px 0}
+.pane5 pre .c{color:var(--ink-3)}
+.pane5 .here{display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:8px;background:var(--well);color:var(--ink);margin:0 0 16px}
+.pane5 .here .aimark{margin-top:6px}
+.pane5 table{width:100%;border-collapse:collapse;margin:0 0 16px}
+.pane5 th{text-align:left;font-weight:400;color:var(--ink-3);padding:0 16px 8px 0;border-bottom:1px solid var(--rule)}
+.pane5 td{padding:12px 16px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink-2)} .pane5 td:first-child{color:var(--ink)} .pane5 td code{background:none;padding:0}
+.pane5 ol{padding-left:24px;margin:0 0 16px} .pane5 li{margin:0 0 8px} .pane5 li::marker{color:var(--ink-3)}
+.pane5 .call{padding:0 0 0 16px;border-left:3px solid var(--orange);color:var(--ink);margin:16px 0}
+.pane5 .foot{display:grid;gap:8px;padding-top:16px;border-top:1px solid var(--rule)}
+.pane5 .foot a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--ink-3)}
+
+/* the bar */
+.composer{position:fixed;left:var(--rail);right:0;bottom:0;z-index:15;padding:16px 24px 24px;pointer-events:none}
+.app5:not(.nopane) ~ .composer{right:var(--pane)}
+.composer::before{content:"";position:absolute;inset:-32px 0 0;background:linear-gradient(rgba(244,243,240,0),var(--ground) 50%);z-index:-1}
+.assist{max-width:912px;display:flex;gap:12px;pointer-events:auto}
+.assist .box{flex:1;min-width:0;height:56px;border-radius:12px;padding:0 8px 0 20px;display:flex;align-items:center;gap:16px;background:var(--card);box-shadow:var(--shadow);color:var(--ink-2)}
+.assist .box .cin{flex:1}
+.assist .box kbd{font-family:var(--font);color:var(--ink-3);height:24px;padding:0 8px;line-height:24px;border-radius:6px;background:var(--well)}
+.assist .send{width:40px;height:40px;border-radius:10px;background:var(--ink);display:grid;place-items:center} .assist .send svg{width:16px;height:16px;stroke:#fff;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.assist .cls{flex:none;width:56px;border-radius:12px;background:var(--card);box-shadow:var(--shadow);display:grid;place-items:center;color:var(--ink-2)} .assist .cls svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8}
+
+/* grid items never grow past their track */
+.col5 > *{min-width:0}
+.chart svg{max-width:100%}
+
+/* fifth pass, at actual size */
+.turn .fig .v{display:flex;align-items:baseline;height:48px}
+.rail5 .clock span + span{margin-top:0}
+.pane5 pre{white-space:pre;overflow-x:auto}
+.pane5 .here code{background:none;padding:0}
+.bars{display:grid;gap:12px}
+.bars .b{display:grid;grid-template-columns:200px minmax(0,1fr) 48px;gap:24px;align-items:center;min-height:24px}
+.bars .b .n{color:var(--ink)}
+.bars .track{position:relative;height:16px;border-radius:4px;background:var(--well)}
+.bars .track i{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:#CFCBC3}
+.bars .track i.hot{background:var(--ink-2)}
+.bars .track::after{content:"";position:absolute;left:36.67%;top:-6px;bottom:-6px;border-left:1px dashed var(--ink-3)}
+.bars .val{font-family:var(--mono);text-align:right;color:var(--ink)}
+.bars .scale{position:relative;height:24px;color:var(--ink-3)}
+.bars .scale i{position:absolute;top:0;font-style:normal;white-space:nowrap}
+
+/* A and C: timelines, waits, people */
+.bars.time .track::after{left:var(--gate,0);border-left:1.5px dashed var(--ink-2)}
+.bars.time .b{grid-template-columns:200px minmax(0,1fr) 128px}
+.bars .track i.mine{background:var(--ink-2)}
+.bars .track i.done{background:#CFCBC3}
+.bars .track i.pending{background:none;border:1.5px dashed var(--ink-3)}
+.bars .val.done{color:var(--green);font-family:var(--font)}
+.bars .val{white-space:nowrap}
+.bars .lh{color:var(--ink-3);padding-top:8px}
+.bars .today{position:absolute;top:-6px;bottom:-6px;border-left:2px solid var(--ink)}
+.secondary{display:inline-flex;align-items:center;height:40px;padding:0 16px;border-radius:10px;background:var(--card);box-shadow:inset 0 0 0 1.5px var(--ink);color:var(--ink);font-weight:600}
+.rows.who .r{grid-template-columns:minmax(0,1.3fr) minmax(0,1.3fr) 1fr 1fr}
+.rows .r .ok{color:var(--green);font-weight:600}
+.imap{display:block;width:100%;max-width:760px;height:auto;margin:0 auto;overflow:visible}
+.imap text{font-family:var(--font);font-size:15px;font-weight:600;fill:var(--ink)}
+.imap .ns{font-size:14px;font-weight:400;fill:var(--ink-3)}
+.imap .node.l.assumed .nl{fill:var(--ink-2)}
+.imap .edge .ln{fill:none;stroke:#CFCBC3;stroke-width:2;stroke-linecap:round}
+.imap .edge.assumed .ln{stroke-dasharray:3 6}
+.imap .edge.deferred .ln{stroke:var(--rule);stroke-dasharray:2 7}
+.imap .edge.now .ln{stroke-width:3}
+.imap .edge .glow{fill:none;stroke-width:10;opacity:.25}
+.imap .edge.done .ln{stroke:var(--green);stroke-dasharray:none}
+.imap .edge .hit{fill:none;stroke:transparent;stroke-width:26}
+.imap .el{font-size:14px;fill:var(--ink);paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round}
+.imap .es{font-size:14px;font-weight:400;fill:var(--ink-3);paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round}
+.imap .edge.waiting:not(.done) .ln{stroke-dasharray:2 7;stroke:var(--ink-3)} .imap .edge.waiting:not(.done) .es{fill:var(--ink-2);font-weight:600}
+.imap.compact{display:none}
+.legend{display:flex;flex-wrap:wrap;gap:8px 24px;color:var(--ink-3);padding-top:16px;margin-top:16px;border-top:1px solid var(--rule)}
+.rail5 .clock span span{display:inline}
+.turn{grid-template-columns:minmax(0,1fr)}
+.turn > *{min-width:0}
+.bars.time .val{font-family:var(--font);color:var(--ink-2)}
+.bars.time .val.done{color:var(--green)}
+
+/* with the reading pane closed, the column and the bar centre in the space beside the rail */
+.app5.nopane .col5{width:100%;margin:0 auto}
+.app5.nopane ~ .composer .assist{margin:0 auto}
+
+/* ══ colour system · built in OKLCH ══
+   Harmony: complementary, from the Ring. Blue h268 is the secondary (~30%), Heritage orange h42 the accent (<10%).
+   Neutrals are tinted toward the blue (h268, C ≤ 0.012) so the page has one temperature and carry ~60%.
+   Every ramp shares the same lightness steps; green h150 is a semantic mark for done, never a surface.
+   Waiting is shown by shape (dashed), not by a hue. All text passes 4.5:1. */
+:root{
+  --neutral-50:#F5F7FA;
+  --neutral-100:#EBEDF1;
+  --neutral-200:#D8DBE0;
+  --neutral-300:#BEC1C8;
+  --neutral-400:#9EA1A9;
+  --neutral-500:#80838B;
+  --neutral-600:#666970;
+  --neutral-700:#505259;
+  --neutral-800:#3A3D44;
+  --neutral-900:#24262C;
+  --blue-50:#F3F7FF;
+  --blue-100:#E5EDFF;
+  --blue-200:#CCDAFF;
+  --blue-300:#A7BFFF;
+  --blue-400:#7C9DF9;
+  --blue-500:#587AE8;
+  --blue-600:#3D5DCF;
+  --blue-700:#2D46AC;
+  --blue-800:#203483;
+  --blue-900:#122056;
+  --orange-50:#FFF4F0;
+  --orange-100:#FFE7DD;
+  --orange-200:#FFCFB9;
+  --orange-300:#FFA982;
+  --orange-400:#F9752F;
+  --orange-500:#D45700;
+  --orange-600:#AB4500;
+  --orange-700:#883500;
+  --orange-800:#672600;
+  --orange-900:#441600;
+  --green-50:#EEFBF0;
+  --green-100:#DBF5DF;
+  --green-200:#BBE8C3;
+  --green-300:#91D39F;
+  --green-400:#66B679;
+  --green-500:#3E9858;
+  --green-600:#287C42;
+  --green-700:#206133;
+  --green-800:#174825;
+  --green-900:#0C2E16;
+  --ground:var(--neutral-50); --card:#FFFFFF; --well:var(--neutral-100); --rule:var(--neutral-200);
+  --ink:var(--neutral-900); --ink-2:var(--neutral-700); --ink-3:var(--neutral-600);
+  --orange:#FE6200; --orange-d:var(--orange-600); --green:var(--green-600);
+  --shadow:0 1px 2px rgba(36,38,44,.05),0 8px 24px -16px rgba(36,38,44,.2);
+}
+/* the secondary hue: where you are, your work, the assistant */
+.turn{background:linear-gradient(180deg,var(--blue-50),var(--card) 160px)}
+.turn .lead{color:var(--blue-800)} .turn .lead b{color:var(--ink)}
+.turn .fig .v.needs{color:var(--orange)}
+.appbar .mark i{background:var(--blue-700)}
+.appbar .date{background:var(--blue-50)} .appbar .date span{color:var(--blue-700)}
+.rail5 .st.now{background:var(--blue-50);box-shadow:inset 3px 0 0 var(--blue-600)}
+.rail5 .st.now .dot i{border-color:var(--blue-600)}
+.rail5 .st.now .s{color:var(--blue-700)}
+.rail5 .st.wait .dot i{border-color:var(--neutral-500)}
+.rail5 .sub .landed span{color:var(--green-600)}
+.asks .k{color:var(--blue-800)}
+.chip{color:var(--blue-800);box-shadow:inset 0 0 0 1.5px var(--blue-200),0 1px 2px rgba(36,38,44,.04)}
+.chip:hover{background:var(--blue-50)}
+.refs a{text-decoration-color:var(--blue-300)} .refs a.on{text-decoration-color:var(--blue-600)}
+.pane5 .here{background:var(--blue-50);color:var(--blue-800)}
+.pane5 pre{background:var(--neutral-900);color:var(--neutral-100)} .pane5 pre .c{color:var(--neutral-400)}
+/* data: one hue in value steps, the accent only on what needs her */
+.grid .cells i.ok{background:var(--neutral-300)} .grid .cells i.miss{background:var(--orange)}
+.grid .c{color:var(--ink-2)} .grid .c.miss{color:var(--orange-600)}
+.bars .track{background:var(--neutral-100)}
+.bars .track i{background:var(--blue-300)} .bars .track i.hot,.bars .track i.mine{background:var(--blue-600)}
+.bars .track i.done{background:var(--green-300)}
+.bars .track i.pending{background:none;border:1.5px dashed var(--neutral-500)}
+.bars .track::after,.bars.time .track::after{border-left-color:var(--neutral-700)}
+.bars .today{border-left-color:var(--ink)}
+.rows .r .ok{color:var(--green-600)} .rows .r .wait{color:var(--ink);font-weight:600}
+.imap .edge .ln{stroke:var(--blue-300)} .imap .el{fill:var(--blue-700)}
+.imap .edge.waiting:not(.done) .ln{stroke:var(--neutral-500)} .imap .edge.waiting:not(.done) .es{fill:var(--ink-2)}
+.imap .edge.done .ln{stroke:var(--green-600)}
+/* the accent: the one commit; ink on orange passes contrast where white does not */
+.btn{background:var(--orange);color:var(--neutral-900)} .btn:hover{background:var(--orange-400)}
+.secondary{box-shadow:inset 0 0 0 1.5px var(--neutral-800);color:var(--ink)}

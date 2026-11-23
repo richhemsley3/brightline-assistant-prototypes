@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>v4 · A · the route</title><link rel="stylesheet" href="v4.css">
+<style>
+.imapwrap{padding:6px 0 0;max-width:820px;margin:0 auto}
+.imap{display:block;width:100%;height:auto;overflow:visible}
+.imap text{font-family:var(--font);font-size:14px;font-weight:600;fill:var(--ink);letter-spacing:-.005em}
+.imap .ns{font-size:12px;font-weight:400;fill:var(--ink-3)}
+.imap .node.l.assumed .nl{fill:var(--ink-2)}
+.imap .edge .ln{fill:none;stroke:#C4C5D2;stroke-width:2;stroke-linecap:round}
+.imap .edge.assumed .ln{stroke-dasharray:3 6}
+.imap .edge.deferred .ln{stroke:#E4E4EA;stroke-dasharray:2 7}
+.imap .edge.now .ln{stroke-width:3}
+.imap .edge .glow{fill:none;stroke-width:12;opacity:.3}
+.imap .edge.done .ln{stroke:var(--mint-d);stroke-width:2.5;stroke-dasharray:none}
+.imap .edge .hit{fill:none;stroke:transparent;stroke-width:26}
+.imap .el{font-size:12.5px;fill:var(--navy);paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round}
+.imap .es{font-size:11.5px;font-weight:400;fill:var(--ink-3);paint-order:stroke;stroke:#fff;stroke-width:7px;stroke-linejoin:round}
+.imap .edge.waiting:not(.done) .ln{stroke-dasharray:2 7;stroke:#D9B466} .imap .edge.waiting:not(.done) .es{fill:var(--amber-d);font-weight:600}
+.imap.compact{display:none}
+</style></head>
+<body>
+<header class="appbar"><div class="mark"><i>D</i><span>Developer Portal</span></div><div class="org"><b>Brightline Bank</b><span class="pill mint" style="height:22px;font-size:11px">Sandbox</span></div><button class="date"><span>Tuesday, Mar 10</span><span class="n">day 1 · next move Mar 19</span></button><div class="r"><button class="ic" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button><button class="ic" aria-label="Alerts"><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></button><div class="u"><img src="../img/av-priya.webp" alt="">Priya<span></span></div></div></header>
+
+<div class="app4 nopane">
+<aside class="rail4"><div class="card">
+  <div class="clock"><b>Tuesday, Mar 10</b><div class="row"><span class="pill">day 1</span><span class="pill mint">May 14 · on track</span></div></div>
+  <div class="lh">Long lead · their moves</div>
+  <div class="st done"><span class="ic"><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg></span><div><span class="t">Day one · five requests</span><span class="s">sent 9:56 to 10:00</span></div><span class="n">5</span></div>
+  <div class="sub">
+    <div class="out"><span class="av">CA</span><em>Chain · your CA</em><span>due Mar 24</span></div>
+    <div class="out"><span class="av">MB</span><em>Allowlist · Marcus</em><span>due Mar 24</span></div>
+    <div class="out"><span class="av">NT</span><em>Firewall · NET-4471</em><span>Apr 2</span></div>
+    <div class="out"><span class="av">MB</span><em>Production creds · Marcus</em><span>May 4</span></div>
+    <div class="out"><span class="av">AO</span><em>Window · Ana</em><span>held</span></div>
+  </div>
+  <div class="lh">Build · yours</div>
+  <div class="st now"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div><span class="t">First successful call</span><span class="s">a key of your own</span></div><span class="n">1</span></div>
+  <div class="st"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></span><div><span class="t">Connect your agents</span><span class="s">MCP · scoped key</span></div></div>
+  <div class="st"><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 4v16"/></svg></span><div><span class="t">Map the messages</span><span class="s">41 scenarios</span></div></div>
+  <div class="st"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 16h10"/></svg></span><div><span class="t">Events</span><span class="s">webhooks</span></div></div>
+  <div class="st"><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 10h16"/></svg></span><div><span class="t">The back office</span><span class="s">Leah signs</span></div></div>
+  <div class="st wait"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span><div><span class="t">Secure the connection</span><span class="s">after Apr 2</span></div></div>
+  <div class="st"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16"/></svg></span><div><span class="t">Configuration</span><span class="s">21 cases</span></div></div>
+  <div class="st"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 19h14M7 15l3-6 3 4 4-7"/></svg></span><div><span class="t">Certify, in rounds</span><span class="s">Ana reviews</span></div></div>
+  <div class="st"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m9 12 2 2 4-4"/></svg></span><div><span class="t">Readiness and go/no-go</span><span class="s">May 11</span></div></div>
+  <div class="st"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 18 12 6l8 12"/></svg></span><div><span class="t">Ramp</span><span class="s">May 14 to 26</span></div></div>
+  <div class="foot">Marlow &amp; Third first · gateway until Sep 23</div>
+</div></aside>
+
+<main class="col4">
+  <div class="said"><img src="../img/av-priya.webp" alt=""><span>We run an in-house authorization host on ISO 8583 (1987 variant) on AWS, behind a gateway today. We want the network directly for authorizations. Decisions and disputes should come to us by webhook…</span><span class="pill">Show all</span></div>
+  <section class="hero">
+    <div class="crumbs"><i class="aimark"></i><span>Your route</span><span>·</span><span>read your description, the deal, your technical review and your sandbox history</span><span class="pill steps">3 steps</span></div>
+    <div class="big"><span class="v">9<small>weeks</small></span><span class="k">to the first ramp step on <b>May 14</b> · 11 steps on two tracks</span></div>
+    <div class="ringfig"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="#F3F3F1" stroke-width="10"/><circle cx="60" cy="60" r="52" fill="none" stroke="#CDD3FF" stroke-width="10" stroke-linecap="round" stroke-dasharray="302.8" stroke-dashoffset="100"/><circle cx="60" cy="60" r="52" fill="none" stroke="#5B6CFF" stroke-width="10" stroke-linecap="round" stroke-dasharray="302.8" stroke-dashoffset="212" /></svg><div class="lab"><div><b>23</b>days theirs</div></div></div>
+    <p class="lead">I read your setup against the deal, and this is the integration it describes. Day one has started the five things other people hold, because connectivity decides <b>May 14</b>.</p>
+  </section>
+
+  <div class="tiles">
+    <div class="tile lav"><span class="k">Out with others</span><span class="v">5</span><span class="d">next lands <b>Mar 19</b> · the chain</span></div>
+    <div class="tile"><span class="k">Yours to build</span><span class="v">6<small>steps</small></span><span class="d">first call · agents · mapping · events · back office · configuration</span></div>
+    <div class="tile mint"><span class="k">Certification</span><span class="v">21<small>cases</small></span><span class="d">from your configuration · two rounds planned</span></div>
+    <div class="tile amber"><span class="k">The gate</span><span class="v">Apr 7</span><span class="d">handshake · needs the firewall change on <b>Apr 2</b></span></div>
+  </div>
+
+  <div class="card4 chart">
+    <div class="h"><b>Where the ten weeks go<span class="sub">their moves above, yours below · the gate that decides May 14 is marked</span></b><span class="seg"><button class="on">Weeks</button><button>Steps</button></span></div>
+    <svg viewBox="0 0 1000 170" role="img" aria-label="Their moves above the line from March 10, her build below, converging at certification and the ramp from May 14">
+      <g>
+        <text x="90" y="12">Mar 10</text><text x="272" y="12">Mar 24</text><text x="454" y="12">Apr 7</text><text x="636" y="12">Apr 21</text><text x="818" y="12">May 5</text><text x="990" y="12" text-anchor="end">May 19</text>
+        <line class="grid" x1="90" y1="20" x2="1000" y2="20"/>
+        <text class="lbl" x="0" y="42">Theirs</text>
+        <rect class="bar theirs" x="90" y="30" width="116" height="14" rx="7"/><text x="214" y="41">chain · your CA</text>
+        <rect class="bar theirs" x="90" y="50" width="130" height="14" rx="7"/><text x="228" y="61">allowlist · Marcus</text>
+        <rect class="bar theirs" x="90" y="70" width="298" height="14" rx="7"/><text x="470" y="81">firewall change · Apr 2</text>
+        <rect class="bar far" x="90" y="90" width="662" height="14" rx="7"/><text x="760" y="101">production credentials · Apr 30</text>
+        <line class="gate" x1="454" y1="24" x2="454" y2="164" stroke-width="2"/><rect class="callout" x="462" y="108" width="118" height="24" rx="12" fill="#FE6200"/><text class="callout-t" x="521" y="124" text-anchor="middle">handshake · the gate</text>
+        <text class="lbl" x="0" y="160">Yours</text>
+        <rect class="bar" x="90" y="148" width="18" height="14" rx="7"/>
+        <rect class="bar" x="114" y="148" width="168" height="14" rx="7"/><text x="120" y="145" fill="#141522">map the messages</text>
+        <rect class="bar" x="288" y="148" width="52" height="14" rx="7"/>
+        <rect class="bar" x="346" y="148" width="92" height="14" rx="7"/><text x="350" y="145" fill="#141522">back office</text>
+        <rect class="bar soft" x="468" y="148" width="274" height="14" rx="7"/><text x="474" y="145" fill="#141522">certify · two rounds</text>
+        <rect class="bar soft" x="748" y="148" width="160" height="14" rx="7"/><text x="752" y="145" fill="#141522">readiness</text>
+        <rect class="bar miss" x="934" y="148" width="66" height="14" rx="7"/><text x="936" y="145" fill="#E55800" font-weight="600">ramp</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="card4">
+    <div class="h"><b>Your integration<span class="sub">dashed is what I assumed · amber is waiting on someone else · tap a connection to see what it means</span></b><span class="pill lav">6 connections</span></div>
+    <div class="imapwrap"><svg class="imap full" viewBox="0 0 760 368" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Your integration"><defs><linearGradient id="gfull4" gradientUnits="userSpaceOnUse" x1="252" x2="508" y1="0" y2="0"><stop offset="0" stop-color="#230762"></stop><stop offset=".55" stop-color="#3144B7"></stop><stop offset="1" stop-color="#9EAAFC"></stop></linearGradient><filter id="bfull4" x="-10%" y="-60%" width="120%" height="220%"><feGaussianBlur stdDeviation="5"></feGaussianBlur></filter></defs><g class="node r"><text class="nl" x="522" y="40">Authorization</text><text class="ns" x="522" y="58">REST over mutual TLS · 44 ms</text></g><g class="node r"><text class="nl" x="522" y="98">Network tokens</text><text class="ns" x="522" y="116">after go-live, when you want it</text></g><g class="node r"><text class="nl" x="522" y="156">Events</text><text class="ns" x="522" y="174">six events · within a second</text></g><g class="node r"><text class="nl" x="522" y="214">Settlement</text><text class="ns" x="522" y="232">final 6:00 AM Eastern · wire reference</text></g><g class="node r"><text class="nl" x="522" y="272">Disputes</text><text class="ns" x="522" y="290">$4.50 a case · the clock in the event</text></g><g class="node r"><text class="nl" x="522" y="330">Sandbox and certification</text><text class="ns" x="522" y="348">cert.api.dgn.com · mcp.dgn.com</text></g><g class="node l"><text class="nl" x="238" y="40" text-anchor="end">Authorization host</text><text class="ns" x="238" y="58" text-anchor="end">ISO 8583 · AWS · behind the gateway today</text></g><g class="node l"><text class="nl" x="238" y="156" text-anchor="end">Event bus</text><text class="ns" x="238" y="174" text-anchor="end">your endpoint in front of it</text></g><g class="node l"><text class="nl" x="238" y="214" text-anchor="end">Ledger</text><text class="ns" x="238" y="232" text-anchor="end">the file, plus the API and event</text></g><g class="node l"><text class="nl" x="238" y="272" text-anchor="end">Case tool</text><text class="ns" x="238" y="290" text-anchor="end">through its own API</text></g><g class="node l"><text class="nl" x="238" y="330" text-anchor="end">Claude Code · Cursor</text><text class="ns" x="238" y="348" text-anchor="end">your agents, on a scoped key</text></g><g class="edge ahead waiting" data-go="host" role="button" tabindex="0" style="transition-delay:0ms"><title>REST over mutual TLS · waiting on 3 moves · due Apr 2 · change</title><path class="ln" d="M252 45C380 45,380 45,508 45"></path><path class="hit" d="M252 45C380 45,380 45,508 45"></path></g><g class="edge ahead deferred" data-go="goals" role="button" tabindex="0" style="transition-delay:90ms"><title>after go-live · nothing to build now · change</title><path class="ln" d="M252 45C380 45,380 103,508 103"></path><path class="hit" d="M252 45C380 45,380 103,508 103"></path></g><g class="edge ahead" data-go="events" role="button" tabindex="0" style="transition-delay:180ms"><title>webhooks · signed · retried for 72 hours · change</title><path class="ln" d="M252 161C380 161,380 161,508 161"></path><path class="hit" d="M252 161C380 161,380 161,508 161"></path></g><g class="edge ahead" data-go="settle" role="button" tabindex="0" style="transition-delay:270ms"><title>daily file · API and event · five cases · Leah reconciles · change</title><path class="ln" d="M252 219C380 219,380 219,508 219"></path><path class="hit" d="M252 219C380 219,380 219,508 219"></path></g><g class="edge ahead" data-go="disputes" role="button" tabindex="0" style="transition-delay:360ms"><title>disputes API · evidence upload · three cases · change</title><path class="ln" d="M252 277C380 277,380 277,508 277"></path><path class="hit" d="M252 277C380 277,380 277,508 277"></path></g><g class="edge now" data-go="lang" role="button" tabindex="0" style="transition-delay:450ms"><title>MCP · scoped key · runs the scenarios and the cases · change</title><path class="glow" style="stroke:url(#gfull4);filter:url(#bfull4)" d="M252 335C380 335,380 335,508 335"></path><path class="ln" style="stroke:url(#gfull4)" d="M252 335C380 335,380 335,508 335"></path><path class="hit" d="M252 335C380 335,380 335,508 335"></path></g><g class="edge ahead waiting lbl" data-go="host" role="button" tabindex="0" style="transition-delay:0ms"><title>REST over mutual TLS · waiting on 3 moves · due Apr 2 · change</title><text class="el" x="380" y="39" text-anchor="middle">REST over mutual TLS</text><text class="es" x="380" y="59" text-anchor="middle">waiting on 3 moves · due Apr 2</text></g><g class="edge ahead deferred lbl" data-go="goals" role="button" tabindex="0" style="transition-delay:90ms"><title>after go-live · nothing to build now · change</title><text class="el" x="439.379712" y="89.813568" text-anchor="end">after go-live</text><text class="es" x="439.379712" y="109.813568" text-anchor="end">nothing to build now</text></g><g class="edge ahead lbl" data-go="events" role="button" tabindex="0" style="transition-delay:180ms"><title>webhooks · signed · retried for 72 hours · change</title><text class="el" x="380" y="155" text-anchor="middle">webhooks</text><text class="es" x="380" y="175" text-anchor="middle">signed · retried for 72 hours</text></g><g class="edge ahead lbl" data-go="settle" role="button" tabindex="0" style="transition-delay:270ms"><title>daily file · API and event · five cases · Leah reconciles · change</title><text class="el" x="380" y="213" text-anchor="middle">daily file · API and event</text><text class="es" x="380" y="233" text-anchor="middle">five cases · Leah reconciles</text></g><g class="edge ahead lbl" data-go="disputes" role="button" tabindex="0" style="transition-delay:360ms"><title>disputes API · evidence upload · three cases · change</title><text class="el" x="380" y="271" text-anchor="middle">disputes API</text><text class="es" x="380" y="291" text-anchor="middle">evidence upload · three cases</text></g><g class="edge now lbl" data-go="lang" role="button" tabindex="0" style="transition-delay:450ms"><title>MCP · scoped key · runs the scenarios and the cases · change</title><text class="el" x="380" y="329" text-anchor="middle">MCP</text><text class="es" x="380" y="349" text-anchor="middle">scoped key · runs the scenarios and the cases</text></g></svg></div>
+  </div>
+</main>
+</div>
+
+<div class="composer"><div class="assist">
+  <div class="sugg"><span class="status"><i class="aimark"></i><b>Ready</b> · the first step is prepared</span><button class="chip">Start: the sandbox and your first call</button><button class="chip">Why these steps and not others?</button><button class="chip">What am I waiting on?</button></div>
+  <div class="bar"><div class="box ring"><i class="aimark"></i><span class="cin">Ask about the route, or say what to do next</span><kbd>Tab</kbd><button class="mic" aria-label="Speak"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button><span class="send"><svg viewBox="0 0 14 14"><path d="M7 12V2M2.5 6.5 7 2l4.5 4.5"/></svg></span></div><button class="cls"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+</div></div>
+</body></html>

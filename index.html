@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brightline assistant prototypes</title>
+<meta name="description" content="Two concept prototypes of an AI assistant inside the Brightline Bank portals of a card network: technical onboarding, and the portals with the assistant built in.">
+<style>
+:root{--canvas:#FAF8F5;--card:#FFFFFF;--ink:#1C1A17;--ink-2:#54514D;--ink-3:#6B6760;--edge:#E0DCD3;--voice:#0C4A69;--navy:#013D5B;--chip-edge:#A6CBD6}
+@font-face{font-family:"Proxima Nova";src:local("Proxima Nova"),local("ProximaNova-Regular");font-weight:400}
+@font-face{font-family:"Proxima Nova";src:local("Proxima Nova Semibold"),local("ProximaNova-Semibold");font-weight:600}
+*{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--ink);font:14px/24px "Proxima Nova",-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+header{height:56px;display:flex;align-items:center;gap:12px;padding:0 24px;background:var(--card);border-bottom:1px solid var(--edge);font-weight:600}
+header i{width:24px;height:24px;border-radius:6px;background:var(--navy);display:inline-block}
+main{max-width:1040px;padding:48px 40px 64px}
+h1{margin:0;font-size:28px;line-height:32px;font-weight:600;letter-spacing:-.02em}
+.lead{margin:16px 0 40px;max-width:68ch;font-size:17px;line-height:28px;color:var(--voice)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.card{display:grid;gap:8px;align-content:start;padding:24px;border-radius:12px;background:var(--card);box-shadow:0 0 0 1px var(--edge),0 1px 2px rgba(28,26,23,.04);color:inherit;text-decoration:none;transition:box-shadow .25s}
+.card:hover,.card:focus-visible{box-shadow:0 0 0 1px #D0CBC3,0 8px 24px -12px rgba(28,26,23,.18);outline:none}
+.card h2{margin:0;font-size:22px;line-height:32px;font-weight:600;letter-spacing:-.015em}
+.card p{margin:0;color:var(--ink-2)}
+.card .go{margin-top:8px;display:inline-flex;align-items:center;height:40px;padding:0 16px;border-radius:10px;width:max-content;color:var(--navy);font-weight:600;box-shadow:inset 0 0 0 1px var(--chip-edge)}
+h3{margin:48px 0 8px;font-size:17px;line-height:24px;font-weight:600}
+ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+li a{color:var(--navy);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--chip-edge)}
+li span{color:var(--ink-3)}
+.fine{margin-top:48px;color:var(--ink-3);max-width:80ch}
+@media (max-width:760px){main{padding:32px 16px 48px}.grid{grid-template-columns:1fr}h1{font-size:22px;line-height:28px}.lead{font-size:16px;line-height:24px}}
+</style>
+</head>
+<body>
+<header><i></i>Brightline assistant prototypes</header>
+<main>
+  <h1>An assistant inside the network's portals</h1>
+  <p class="lead">Two concept prototypes for Brightline Bank, a fictional issuer joining a card network: one guides an engineer through technical onboarding turn by turn, the other builds the assistant into each portal's home.</p>
+  <div class="grid">
+    <a class="card" href="brightline-onboarding/">
+      <h2>Brightline Onboarding</h2>
+      <p>Priya, the lead integration engineer, describes what she is building; the assistant draws her route, starts the long-lead requests other people hold, and prepares every step for her approval, with a step rail and reference pages beside the conversation.</p>
+      <span class="go">Open the prototype</span>
+    </a>
+    <a class="card" href="brightline-assist/">
+      <h2>Brightline Assist</h2>
+      <p>The three portals after onboarding (Dana in the Partner Portal, Marcus in the Agent Portal, Priya in the Developer Portal), each with a briefing home and an assistant that answers, drills down and prepares the action.</p>
+      <span class="go">Open the prototype</span>
+    </a>
+  </div>
+
+  <h3>Design and handoff</h3>
+  <ul>
+    <li><a href="https://github.com/richhemsley3/brightline-assistant-prototypes/blob/main/assistant-style/STYLE.md">Style instructions</a> <span>· the visual language shared by these and Network Assist</span></li>
+    <li><a href="https://github.com/richhemsley3/brightline-assistant-prototypes/blob/main/assistant-style/CHARTS.md">Chart rules</a> <span>· form by the reader's job</span></li>
+    <li><a href="https://github.com/richhemsley3/brightline-assistant-prototypes/blob/main/assistant-style/HANDOFF.md">Handoff</a> <span>· how to run, check and publish, and the decision log</span></li>
+    <li><a href="https://richhemsley3.github.io/network-assist/experience/">Network Assist</a> <span>· the payments assistant these share a language with</span></li>
+  </ul>
+
+  <p class="fine">Brightline Bank, its people, partners and figures are invented. Refresh a prototype to start over. The type is Proxima Nova where it is installed; the font files are not included here.</p>
+</main>
+</body>
+</html>
