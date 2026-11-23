@@ -10,11 +10,13 @@ For any Claude session (or person) picking up Brightline Onboarding, Brightline 
 
 | Prototype | Source | Published | Current |
 |---|---|---|---|
-| Brightline Onboarding | `~/Desktop/Claude/brightline-onboarding/` | Private artifact https://claude.ai/artifact/DdtQ3R5fxAvRetZrwWKoTC | Version 25 |
-| Brightline Assist | `~/Desktop/Claude/brightline-assist/` | Private artifact https://claude.ai/artifact/1ULrcgke34wgcgtFrV9NkT | Version 20 |
+| Brightline Onboarding | `~/Desktop/Claude/brightline-onboarding/` | Public: https://richhemsley3.github.io/brightline-assistant-prototypes/brightline-onboarding/ · private artifact https://claude.ai/artifact/DdtQ3R5fxAvRetZrwWKoTC | Version 25 |
+| Brightline Assist | `~/Desktop/Claude/brightline-assist/` | Public: https://richhemsley3.github.io/brightline-assistant-prototypes/brightline-assist/ · private artifact https://claude.ai/artifact/1ULrcgke34wgcgtFrV9NkT | Version 20 |
 | Network Assist | `~/Desktop/Claude/payments-assistant-direction/experience/index.html` | Public: https://richhemsley3.github.io/network-assist/experience/ (repo richhemsley3/network-assist, `main`) | Commit 4f104d9 |
 | Figma build guide | `~/Desktop/Claude/payments-assistant-direction/figma/network-assist-figma-instructions.md` | Same repo, `figma/` | Version 3 |
-| Shared rules and tools | `~/Desktop/Claude/assistant-style/` (this folder) | Local only | |
+| Shared rules and tools | `~/Desktop/Claude/assistant-style/` (this folder; `repo-root/` holds the repo landing page, README and .gitignore) | Public: github.com/richhemsley3/brightline-assistant-prototypes, `assistant-style/` | |
+
+**Repos:** Network Assist is github.com/richhemsley3/network-assist. Both Brightline prototypes and this folder are github.com/richhemsley3/brightline-assistant-prototypes (public, Pages from `main`, landing page https://richhemsley3.github.io/brightline-assistant-prototypes/). Both are mirrors of the local folders, pushed by the scripts in §4.
 
 Project notes: Onboarding `README.md`, `PLAN-v2.md` (the arc and every change, dated); Brightline Assist `README.md`, `BRIEF.md`; Network Assist the repo `README.md`. The artifacts are private: people Rich shares them with need the Share menu on the page.
 
@@ -46,7 +48,9 @@ Then look at the screenshots yourself. The probes catch errors and overflow, not
 - **Onboarding:** Artifact publish `dist/artifact.html`, root `brightline-onboarding`, files `onboard.css`, `onboard-v5.css`, `onboard.js`, `data.js`, `data-v2.js`, `docs.js`, `design-system/icons.js`, `img/av-priya.webp`, `tokens/colors.css`, `fonts/ProximaNova-{Light,Reg,Sbold}.otf` (contentType `font/otf`). On a small change send only the changed files; the rest are kept.
 - **Brightline Assist:** Artifact publish `dist/artifact.html` with `url` https://claude.ai/artifact/1ULrcgke34wgcgtFrV9NkT, root `brightline-assist`, files `assist.css`, `assist-v5.css`, `assist.js`, `data.js`, `design-system/icons.js`, `img/av-{dana,marcus,priya}.webp`, `tokens/colors.css`, `fonts/*.otf`.
 - **Network Assist:** `bash tools/push-network-assist.sh "message"` (add `README=path` to update the repo README; fetch the current one first with `gh api repos/richhemsley3/network-assist/contents/README.md --jq .content | base64 -d`). It commits through the GitHub API because local `git` fails until the Xcode licence is accepted (`sudo xcodebuild -license`). Never commit the font files: the repo is public and Proxima Nova is licensed. Pages rebuilds in about a minute.
-- **Rich's standing rules:** nothing to GitHub unless he asks (Network Assist is the one repo he asked for); artifacts stay private.
+- **Brightline repo:** `node tools/push-brightline.js "message"` mirrors `brightline-onboarding/`, `brightline-assist/`, `assistant-style/` and `assistant-style/repo-root/` (the repo root) to github.com/richhemsley3/brightline-assistant-prototypes through the API. It uploads the whole tree, so a file deleted locally is deleted in the repo. It never uploads font files or check-tool output. Pages rebuilds in about a minute.
+- **After any change:** publish the artifact and push the repo, so both stay current.
+- **Rich's standing rules:** artifacts stay private; Nov 23 he asked for everything in GitHub ("I want everything in Github"), public, with Pages.
 
 ## 5. Decision log (newest last)
 
@@ -69,6 +73,7 @@ November 23:
 - Charts: "Make sure we don't just use progress bars when they're not useful, and charts are functional and responsive." See `CHARTS.md`.
 - "Sometimes there's dead space when I scroll in agent assist mode": blocks waiting to appear take no space; bottom room = bar height + 32.
 - Chip rows: "say 'recommended' or 'suggested' when there isn't another prompt like 'before you decide'."
+- "I want everything in Github": both Brightline prototypes and this folder went to a new public repo with Pages; font files left out.
 - "Suggested actions for agent assist shouldn't persist in the feed once an action has been taken." Used suggestion rows are hidden (`.recs.done`, not forks) in all three; new ones appear at the end of the latest turn.
 - The shared style guide, chart rules, this handoff and the check tools moved to `~/Desktop/Claude/assistant-style/`. The Figma instructions became version 3: one current spec with a change log.
 
@@ -87,6 +92,7 @@ Earlier standing rules still in force:
 - **Hidden-but-sized blocks:** `.reveal` elements at opacity 0 hold their space. They are `display:none` until revealed now; any new code path that adds a `.reveal` element must add `in`.
 - **Sticky or absolute children** lose their anchor if a parent's `position` changes (the home scope line overflowed when the ask section became `static`).
 - **Full-page screenshots** of Network Assist need the body's height and overflow lifted first (see `na-walk.js`), because the app scrolls inside its own view.
+- **Screenshot tool profiles:** `shot.js` now gives Chrome a temp profile and deletes it; before, every run left a profile beside the tool (1.3GB by the end of Nov 23).
 - **Shell quoting:** an apostrophe in CSS comments breaks `node -e '…'`. Write scripts to a file.
 - **Dark mode:** the Design System Labs `colors.css` has a dark set. Onboarding and Brightline Assist import it whole and have not been checked in a dark OS theme. Network Assist inlines the light set only.
 
